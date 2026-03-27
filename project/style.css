@@ -11,6 +11,13 @@ body {
     height: 100vh;
 }
 
+#settingsScreen {
+    background-image: url("./img/startScreen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
 #logo {
     width: 50%;
     padding: 3%;
@@ -21,16 +28,33 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 72%;
-    top: 10%;
+    left: 74%;
+    top: -16%;
 }
 
 #startBtn {
     width: 20%;
+    animation: press 2s ease-in-out 0s infinite;
 }
 #settingBtn {
     width: 12%;
     padding-top: 1%;
     padding-left: 4%;
+}
+
+#circle {
+    clip-path: circle(50px);
+}
+
+@keyframes press {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.0);
+    }
 }
 
