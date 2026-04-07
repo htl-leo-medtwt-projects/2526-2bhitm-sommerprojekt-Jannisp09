@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,62 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Start Screen: -->
     <section id="startScreen">
         <img src="./img/logo.png" alt="Logo" id="logo">
         <div id="buttonBox">
-            <img src="img/startBtn.png" onclick="startGame()" id="startBtn">
+            <img src="img/startBtn.png" onclick="startSetup()" id="startBtn">
             <img src="img/settingBtn.png" onclick="settings()" id="settingBtn">
         </div>
     </section>
+
+
+    <!-- Settings: -->
     <section id="settingsScreen">
-        <div id="allSettings">
-            <div id="musicSetting">
-                <div id="circle">▶︎</div>
-                <div id="Info">MUSIC ON</div>
+        <div id="settingsUI">
+            <div id="backBtn" onclick="backToStart()">← Back</div>
+            <div class="settingRow">
+                <div class="icon" id="musicIcon" onclick="startMusic()">▶</div>
+                <div class="label" id="musicText">MUSIC OFF</div>
+            </div>
+            <div class="settingRow">
+                <div class="icon">🎮</div>
+                <div class="label">
+                    CONTROL WITH ARROWKEYS <input type="checkbox" checked><br>
+                    CONTROL WITH WASD <input type="checkbox">
+                </div>
+            </div>
+            <div class="settingRow">
+                <div class="icon">🗂️</div>
+                <div class="label delete">DELETE PROGRESS</div>
             </div>
         </div>
     </section>
 
+    <!-- User SetUp -->
+    <section id="setupScreen">
+        <img src="./img/computer.png" id="computerScreen">
+
+        <div id="computer">
+            <input type="text" id="nameInput" placeholder="Max Mustermann">
+            <button id="acceptBtn" onclick="accept()">✔</button>
+        </div>
+    </section>
+    <section id="cmdOverlay">
+        <div id="cmdWindow">
+            <pre id="cmdText"></pre>
+            <input type="text" id="cmdInput" autofocus>
+        </div>
+    </section>
+
+    <!-- Level 1 -->
+    <section id="levelOne">
+        
+    </section>
+
     <script src="script.js" defer></script>
 </body>
+
 </html>

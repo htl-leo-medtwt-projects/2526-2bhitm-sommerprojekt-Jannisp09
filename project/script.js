@@ -1,13 +1,100 @@
 let startScreen = document.getElementById("startScreen");
 let settingScreen = document.getElementById("settingsScreen");
-startScreen.style.display = "grid";
+let musicIcon = document.getElementById("musicIcon");
+let musicText = document.getElementById("musicText");
+let setupScreen = document.getElementById("setupScreen");
+let level1 = document.getElementById("levelOne");
 
-function startDisplay () {
+startScreen.style.display = "grid";
+settingScreen.style.display = "none";
+setupScreen.style.display = "none";
+level1.style.display = "none";
+
+
+function startDisplay() {
     startScreen.style.display = "none";
     settingScreen.style.display = "none";
+    setupScreen.style.display = "none";
+    level1.style.display = "none";
 }
 
-function settings () {
-    startDisplay();
-    settingScreen.style.display = "block";
+function settings() {
+    startScreen.style.display = "none";
+    settingScreen.style.display = "grid";
+    setupScreen.style.display = "none";
+    level1.style.display ="none";
+}
+
+function backToStart() {
+    startScreen.style.display = "grid";
+    settingScreen.style.display = "none";
+    setupScreen.style.display = "none";
+    level1.style.display ="none";
+}
+
+function startMusic() {
+    musicIcon.innerHTML = "❚❚";
+    musicText.innerHTML = "MUSIC ON";
+}
+
+function startSetup() {
+    startScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    setupScreen.style.display = "grid";
+    level1.style.display ="none";
+}
+
+let playerName = "";
+
+let cmdOverlay = document.getElementById("cmdOverlay");
+let cmdText = document.getElementById("cmdText");
+let cmdInput = document.getElementById("cmdInput");
+
+function accept() {
+    playerName = document.getElementById("nameInput").value;
+    let subjectID = "5364Ge634HD93";
+
+    cmdText.textContent =
+        `:C/experiment/user > npm start user-+
+
+    Starting user...
+
+    Informations:
+    Name: ${playerName}
+    Subject ID: ${subjectID}
+
+    Correct? (y/n):`
+
+    cmdOverlay.style.display = "flex"
+    cmdInput.focus()
+};
+
+// CMD Input von KI: nach dem Klicken von Enter und schreiben von 'y' passiert folgendes: ein text kommt und das spiel starten nach 1,5s 
+cmdInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        let answer = cmdInput.value.toLowerCase()
+        if (answer === "y") {
+            cmdText.textContent += ` y
+
+        User started...
+        0 Problems detected`
+
+            setTimeout(() => {
+                cmdOverlay.style.display = "none"
+                startGame()
+            }, 1500)
+        }
+        if (answer === "n") {
+            cmdOverlay.style.display = "none"
+        }
+
+    }
+
+});
+
+function startGame () {
+    startScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    setupScreen.style.display = "none";
+    level1.style.display = "grid";
 }
