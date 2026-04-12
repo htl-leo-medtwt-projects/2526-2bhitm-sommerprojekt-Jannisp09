@@ -1,3 +1,6 @@
+/// <reference path="script_keyevents.js" />
+/// <reference path="script-player.js" />
+
 let startScreen = document.getElementById("startScreen");
 let settingScreen = document.getElementById("settingsScreen");
 let musicIcon = document.getElementById("musicIcon");
@@ -97,4 +100,20 @@ function startGame () {
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";
     level1.style.display = "grid";
+
+    gameLoop();
 }
+
+let GAME_SCREEN = {
+    surface: document.getElementById('levelOne'),
+    surfaceScale: '100%',
+    startScreen: document.getElementById('startScreen')
+}
+
+GAME_SCREEN.surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceScale) / 100 * (window.innerWidth / GAME_SCREEN.surface.clientWidth)})`;
+
+let GAME_CONFIG = {
+    gameSpeed: 24, // game loop refresh rate (pictures per second)
+    characterSpeed: 5 // move offset in PX
+}
+

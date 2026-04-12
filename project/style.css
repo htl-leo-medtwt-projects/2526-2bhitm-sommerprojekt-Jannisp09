@@ -196,6 +196,25 @@ input[type="checkbox"] {
     background-position: center;
     height: 100vh;
     position: relative;
+    width: 100%;
+    margin: 0 auto;
+    transform-origin: top;
+}
+
+#player {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 100px; /* viewing window */
+  height: 200px; /* viewing window */
+  overflow: hidden;
+  opacity: 1; /* hide till start */
+}
+#spriteImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
 }
 
 @keyframes press {
