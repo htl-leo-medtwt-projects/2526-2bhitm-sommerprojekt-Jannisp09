@@ -16,8 +16,8 @@ let PLAYER = {
     coinCount: 0
 }
 
-PLAYER.box.style.left = "100px";
-PLAYER.box.style.top = "100px";
+PLAYER.box.style.left = "60px";
+PLAYER.box.style.top = "60px";
 
 
 
@@ -53,14 +53,12 @@ function movePlayer(dx, dy, dr) {
  * ANIMATE PLAYER
  * **********************************/
 function animatePlayer() {
-    let frameWidth = 150;
+    let frameWidth = 10;
     
     if (PLAYER.spriteImgNumber < 6) {
         PLAYER.spriteImgNumber++;
-
         let x = parseFloat(PLAYER.spriteImg.style.left) || 0;
         x -= frameWidth;
-
         PLAYER.spriteImg.style.left = x + "px";
     } else {
         PLAYER.spriteImg.style.left = "0px";
