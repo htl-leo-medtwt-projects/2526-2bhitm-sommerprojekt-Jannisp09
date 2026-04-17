@@ -153,7 +153,7 @@ body {
 }
 
 #cmdOverlay{
-    position:fixed;
+    position: fixed;
     top:0;
     left:0;
     width:100%;
@@ -205,7 +205,7 @@ input[type="checkbox"] {
   position: absolute;
   left: 100px;
   top: 100px;
-  width: 60px; /* viewing window */
+  width: 58px; /* viewing window */
   height: 200px; /* viewing window */
   overflow: hidden;
   opacity: 1;
@@ -234,7 +234,6 @@ input[type="checkbox"] {
     position: absolute;
     top: 20px;
     left: 20px;
-
     display: flex;
     align-items: center;
     gap: 15px;
@@ -244,13 +243,9 @@ input[type="checkbox"] {
     position: relative;
     width: 180px;
     height: 28px;
-
     background: rgba(0,0,0,0.6);
-    border: 2px solid rgba(255,255,255,0.2);
     border-radius: 8px;
-
     overflow: hidden;
-
     box-shadow: 0 0 10px rgba(0,255,0,0.2);
 }
 
@@ -258,7 +253,7 @@ input[type="checkbox"] {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, limegreen, #00ff88);
+    background: linear-gradient(90deg, #ff802c, #E45E07);
 }
 
 #hpText {

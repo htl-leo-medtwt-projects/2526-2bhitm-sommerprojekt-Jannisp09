@@ -52,17 +52,22 @@ function movePlayer(dx, dy, dr) {
 /***********************************
  * ANIMATE PLAYER
  * **********************************/
+let animationCooldown = 0;
+
 function animatePlayer() {
-    let frameWidth = 10;
-    
-    if (PLAYER.spriteImgNumber < 6) {
+    if (animationCooldown > 0) {
+        animationCooldown--;
+        return;
+    }
+    animationCooldown = 5;
+    let frameWidth = 61;
+
+    if (PLAYER.spriteImgNumber < 5) {
         PLAYER.spriteImgNumber++;
-        let x = parseFloat(PLAYER.spriteImg.style.left) || 0;
-        x -= frameWidth;
-        PLAYER.spriteImg.style.left = x + "px";
+        PLAYER.spriteImg.style.left = -(PLAYER.spriteImgNumber * frameWidth) + "px";
     } else {
-        PLAYER.spriteImg.style.left = "0px";
         PLAYER.spriteImgNumber = 0;
+        PLAYER.spriteImg.style.left = "0px";
     }
 }
 
