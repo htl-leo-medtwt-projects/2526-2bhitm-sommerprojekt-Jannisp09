@@ -34,9 +34,9 @@ function movePlayer(dx, dy, dr) {
     let originalY = parseFloat(PLAYER.box.style.top);
 
     let surfaceWidth = GAME_SCREEN.surface.clientWidth;
-    let surfaceHeight = GAME_SCREEN.surface.offsetHeight; // hier geändert
+    let surfaceHeight = GAME_SCREEN.surface.offsetHeight; 
     let playerWidth = PLAYER.box.clientWidth;
-    let playerHeight = PLAYER.box.offsetHeight; // hier geändert
+    let playerHeight = PLAYER.box.offsetHeight;
 
     let newX = originalX + dx;
     let newY = originalY + dy;

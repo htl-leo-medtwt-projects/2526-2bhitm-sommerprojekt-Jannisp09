@@ -89,7 +89,8 @@ body {
 .icon {
     width: 45px;
     height: 45px;
-    background: rgba(255,255,255,0.15);
+    background: #00e5ff57;
+    border: 2px solid #00e5ff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -101,11 +102,13 @@ body {
 .label {
     font-size: 16px;
     letter-spacing: 1px;
+    font-family: 'Audiowide', sans-serif;
 }
 
 .delete {
     color: red;
     cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
 }
 
 
@@ -179,6 +182,7 @@ body {
     color: black;
 }
 
+/* W3 Schools */
 #nameInput:focus {
     box-shadow: 
         0 0 15px #00e5ff,
@@ -188,6 +192,10 @@ body {
 input[type="checkbox"] {
     transform: scale(1.2);
     margin-left: 10px;
+}
+
+#rucksack {
+    width: 60%;
 }
 
 #levelOne {
@@ -266,7 +274,7 @@ input[type="checkbox"] {
     font-family: 'Audiowide', sans-serif;
 }
 
-#levelBox {
+#levelBoxLeft {
     width: 44px;
     height: 44px;
     border: 1px solid #00e5ff;
@@ -278,4 +286,25 @@ input[type="checkbox"] {
     font-weight: bold;
     box-shadow: 0 0 8px #00e5ff;
     font-family: 'Audiowide', sans-serif;
+}
+
+#levelBoxRight {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ff5005;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 0 8px #ff5005;
+    transition: 0.7s;
+}
+
+#levelBoxRight:hover {
+    background-color:#ff5005;
+    cursor: pointer;
 }
