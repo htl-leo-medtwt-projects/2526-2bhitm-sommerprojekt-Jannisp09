@@ -110,84 +110,79 @@ body {
 
 
 #setupScreen {
-    background-image: url("./img/setupScreen.png");
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+        url("./img/setupScreen.png");
     background-size: cover;
     background-position: center;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    font-family: 'Audiowide', sans-serif;
 }
 
-#computerScreen {
+#setupUI {
     position: absolute;
-    width: 52%;
-    top: 15%;
-    left: 25%;
-}
-
-#computer {
-    position: absolute;
-    width: 800px;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    pointer-events: auto;
+}
+
+#roboter {
+    position: absolute;
+    top: 20%;
+    left: 23%;
+    width: 15%;
 }
 
 #nameInput {
-    position: absolute;
-    top: 42.7%;
-    left: 44%;
-    width: 35%;
-    height: 2%;
-    padding: 6px;
-    border: none;
-    background: white;
-    border-color: #E9ECF1;
-    color: black;
+    width: 300px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
     outline: none;
+    box-shadow: 0 0 10px #00e5ff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#inputRow {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #acceptBtn {
-    position: absolute;
-    top: 42%;
-    left: 77%;
-    background: limegreen;
-    border: none;
-    padding: 6px 10px;
+    width: 324px;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
     cursor: pointer;
+    box-shadow: 0 0 10px #00e5ff;
+    transition: 0.2s;
 }
 
-#cmdOverlay{
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:rgba(0,0,0,0.75);
-    display:none;
-    justify-content:center;
-    align-items:center;
+#acceptBtn:hover {
+    background: #00e5ff;
+    color: black;
 }
 
-#cmdWindow{
-    width: 600px;
-    background: black;
-    color: #00ff00;
-    padding: 20px;
-    font-family: monospace;
-}
-
-#cmdText{
-    white-space: pre-line;
-}
-
-#cmdInput{
-    width: 100%;
-    background: black;
-    color: #00ff00;
-    border: none;
-    outline: none;
-    font-family: monospace;
+#nameInput:focus {
+    box-shadow: 
+        0 0 15px #00e5ff,
+        0 0 30px #00e5ff;
 }
 
 input[type="checkbox"] {

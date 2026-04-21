@@ -48,17 +48,12 @@
 
     <!-- User SetUp -->
     <section id="setupScreen">
-        <img src="./img/computer.png" id="computerScreen">
-
-        <div id="computer">
-            <input type="text" id="nameInput" placeholder="Max Mustermann">
-            <button id="acceptBtn" onclick="accept()">✔</button>
-        </div>
-    </section>
-    <section id="cmdOverlay">
-        <div id="cmdWindow">
-            <pre id="cmdText"></pre>
-            <input type="text" id="cmdInput" autofocus>
+        <div id="setupUI">
+            <img src="./img/figure.png" alt="Roboter" id="roboter">
+            <div id="inputRow">
+                <input type="text" id="nameInput" placeholder="GIB DEINEN NAMEN EIN...">
+                <button id="acceptBtn" onclick="startGame()">START GAME</button>
+            </div>
         </div>
     </section>
 
