@@ -30,21 +30,40 @@ PLAYER.box.style.top = "60px";
  * @param {number} dr - player heading direction (-1: look left || 1: look right)
  */
 function movePlayer(dx, dy, dr) {
-    // save original position
     let originalX = parseFloat(PLAYER.box.style.left);
     let originalY = parseFloat(PLAYER.box.style.top);
 
-    // calculate new position
-    PLAYER.box.style.left = (originalX + dx) + 'px';
-    PLAYER.box.style.top = (originalY + dy) + 'px';
+    let surfaceWidth = GAME_SCREEN.surface.clientWidth;
+    let surfaceHeight = GAME_SCREEN.surface.offsetHeight; // hier geändert
+    let playerWidth = PLAYER.box.clientWidth;
+    let playerHeight = PLAYER.box.offsetHeight; // hier geändert
+
+    let newX = originalX + dx;
+    let newY = originalY + dy;
+
+    if (newX < 0) {
+        newX = 0;
+    }
+    if (newX > surfaceWidth - playerWidth) {
+        newX = surfaceWidth - playerWidth;
+    }
+    if (newY < 0) { 
+        newY = 0;
+    }
+   let bottomLimitOffset = 25;
+
+    if (newY > surfaceHeight - playerHeight + bottomLimitOffset) {
+        newY = surfaceHeight - playerHeight + bottomLimitOffset;
+    }
 
 
-    // update sprite direction if needed
+    PLAYER.box.style.left = newX + 'px';
+    PLAYER.box.style.top = newY + 'px';
+
     if (dr != 0 && dr != PLAYER.spriteDirection) {
         PLAYER.spriteDirection = dr;
         PLAYER.box.style.transform = `scaleX(${dr})`;
     }
-
 }
 
 
