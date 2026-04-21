@@ -48,6 +48,7 @@ function startSetup() {
 }
 
 let playerName = "";
+let dialogues;
 
 let cmdOverlay = document.getElementById("cmdOverlay");
 let cmdText = document.getElementById("cmdText");
