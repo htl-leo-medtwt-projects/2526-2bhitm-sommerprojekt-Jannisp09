@@ -7,7 +7,6 @@
     <title>Protocol: Reconstruction</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <script src="script_keyevents.js" defer></script>
     <script src="script-player.js" defer></script>
     <script src="script-loop.js" defer></script>
@@ -58,7 +57,11 @@
     </section>
 
     <!-- Inventar -->
-    <section id="inventoryScreen">
+    <section id="inventoryOverlay">
+        <div id="inventoryUI">
+            <div id="backBtnInventory" onclick="backToGame()">← Back</div>
+            <p id="nothingFound">Es wurde noch kein Objekt gefunden.</p>
+        </div>
     </section>
 
     <!-- Level 1 -->
@@ -74,7 +77,7 @@
                 1
             </div>
         </div>
-        <div id="levelBoxRight">
+        <div id="levelBoxRight" onclick="openInventory()">
                 <img src="./img/rucksack.png" alt="Rucksack" id="rucksack">
             </div>
         <div id="player">
