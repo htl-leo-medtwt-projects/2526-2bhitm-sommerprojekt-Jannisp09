@@ -1,6 +1,7 @@
 /// <reference path="script_keyevents.js" />
 /// <reference path="script-player.js" />
 
+let nameInput = document.getElementById("nameInput");
 let startScreen = document.getElementById("startScreen");
 let settingScreen = document.getElementById("settingsScreen");
 let musicIcon = document.getElementById("musicIcon");
@@ -75,6 +76,9 @@ function startGame () {
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";
     level1.style.display = "grid";
+
+    playerName = nameInput.value;
+    console.log("Player Name: " + playerName);
 
     gameLoop();
 }
