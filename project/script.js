@@ -10,6 +10,11 @@ let setupScreen = document.getElementById("setupScreen");
 let inventoryOverlay = document.getElementById("inventoryOverlay");
 let level1 = document.getElementById("levelOne");
 
+// Audio
+let audio = new Audio('./sound/bg-music.mp3');
+let startAudio = new Audio('./sound/startGame_sound.mp3');
+let click = new Audio('./sound/button.mp3');
+
 startScreen.style.display = "grid";
 settingScreen.style.display = "none";
 setupScreen.style.display = "none";
@@ -31,6 +36,7 @@ function settings() {
     setupScreen.style.display = "none";
     level1.style.display ="none";
     inventoryOverlay.style.display = "none";
+    click.play();
 }
 
 function backToStart() {
@@ -39,11 +45,15 @@ function backToStart() {
     setupScreen.style.display = "none";
     level1.style.display ="none";
     inventoryOverlay.style.display = "none";
+    click.play();
 }
 
 function startMusic() {
+    audio.play();
+    audio.volume = 0.5;
     musicIcon.innerHTML = "❚❚";
     musicText.innerHTML = "MUSIC ON";
+    click.play();
 }
 
 function startSetup() {
@@ -52,15 +62,18 @@ function startSetup() {
     setupScreen.style.display = "grid";
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
+    click.play();
 }
 
 function backToGame() {
     inventoryOverlay.style.display = "none";
+    click.play();
 }
 
 function openInventory() {
     inventoryOverlay.style.display = "grid";
     console.log("Inventory geöffnet");
+    click.play();
 }
 
 let playerName = "";
@@ -76,6 +89,7 @@ function startGame () {
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";
     level1.style.display = "grid";
+    startAudio.play();
 
     playerName = nameInput.value;
     console.log("Player Name: " + playerName);
