@@ -14,6 +14,7 @@ let level1 = document.getElementById("levelOne");
 let audio = new Audio('./sound/bg-music.mp3');
 let startAudio = new Audio('./sound/startGame_sound.mp3');
 let click = new Audio('./sound/button.mp3');
+let backClick = new Audio('./sound/button_2.mp3');
 
 startScreen.style.display = "grid";
 settingScreen.style.display = "none";
@@ -45,7 +46,7 @@ function backToStart() {
     setupScreen.style.display = "none";
     level1.style.display ="none";
     inventoryOverlay.style.display = "none";
-    click.play();
+    backClick.play();
 }
 
 function startMusic() {
@@ -53,7 +54,6 @@ function startMusic() {
     audio.volume = 0.5;
     musicIcon.innerHTML = "❚❚";
     musicText.innerHTML = "MUSIC ON";
-    click.play();
 }
 
 function startSetup() {
@@ -67,7 +67,7 @@ function startSetup() {
 
 function backToGame() {
     inventoryOverlay.style.display = "none";
-    click.play();
+    backClick.play();
 }
 
 function openInventory() {
