@@ -354,3 +354,13 @@ input[type="checkbox"] {
     font-size: 18px;
     font-family: 'Audiowide', cursive;
 }
+
+#solutionCircle {
+    position: absolute;
+    top: 75%;
+    left: 48%;
+    width: 50px;
+    height: 50px;
+    background-color: #00e5ff;
+    border-radius: 50%;   
+}

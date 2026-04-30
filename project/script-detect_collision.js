@@ -12,7 +12,7 @@ function isColliding(div1, div2, tolerance = 0) {
     let d1OffsetLeft = div1.offsetLeft; 
     let d1Height = div1.clientHeight;
     let d1Width = div1.clientWidth;
-    let d1Top = d1OffsetTop + d1Height;
+    let d1Top = d1OffsetTop + d1Height
     let d1Left = d1OffsetLeft + d1Width;
 
     let d2OffsetTop = div2.offsetTop;
