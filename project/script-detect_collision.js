@@ -6,7 +6,7 @@
  * @returns {boolean} - true or false depending on collision
  */
 
-function isColliding(div1, div2, tolerance = 0) {
+function isColliding(div1, div2, tolerance) {
 
     let d1OffsetTop = div1.offsetTop;
     let d1OffsetLeft = div1.offsetLeft; 
@@ -29,3 +29,24 @@ function isColliding(div1, div2, tolerance = 0) {
 
     return !(tolerance < distanceTop || tolerance < distanceBottom || tolerance < distanceLeft || tolerance < distanceRight);
 };
+
+let player = document.getElementById("player");
+let solutionCircle = document.getElementById("solutionCircle");
+
+let solutionTriggered = false;
+
+function checkCollision() {
+    if (solutionTriggered == false && isColliding(player, solutionCircle, -20)) {
+        solutionTriggered = true;
+        keyListenerUp({key: "ArrowLeft"});
+        keyListenerUp({key: "ArrowUp"});
+        keyListenerUp({key: "ArrowRight"});
+        keyListenerUp({key: "ArrowDown"});
+        onSolutionFound();
+    }
+}
+
+function onSolutionFound() {
+    alert("Lösung gefunden!");
+    solutionTriggered = false;
+}
