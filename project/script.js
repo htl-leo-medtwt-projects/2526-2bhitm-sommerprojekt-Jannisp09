@@ -118,23 +118,38 @@ let solution1_input_2 = document.getElementById("solution1_input_2");
 let solution1_input_3 = document.getElementById("solution1_input_3");
 let solution_acceptBtn = document.getElementById("solution_acceptBtn");
 let solutionUI = document.getElementById("solutionUI");
+let hpBarInner = document.getElementById("hpBarInner");
+let hpText = document.getElementById("hpText");
+
+let wrong = new Audio('./sound/wrong.mp3');
+let correct = new Audio('./sound/correct.mp3');
+
+let hp = 100;
+hpBarInner.style.width = "100%";
+hpText.innerHTML = hp + "HP";
 
 
 function checkSolution1() {
-
     if (solution1_input_1.value == solution_level1[0] && solution1_input_2.value == solution_level1[1] && solution1_input_3.value == solution_level1[2]) {
-        solutionUI.style.color = "green";
-        solutionUI.style.border = "2px solid green";
-        solution1_input_1.style.border = "2px solid green";
-        solution1_input_1.style.color = "green";
-        solution1_input_1.style.boxShadow = "0 0 10px green";
-        solution1_input_2.style.border = "2px solid green";
-        solution1_input_2.style.color = "green";
-        solution1_input_2.style.boxShadow = "0 0 10px green";
-        solution1_input_3.style.border = "2px solid green";
-        solution1_input_3.style.color = "green";
-        solution1_input_3.style.boxShadow = "0 0 10px green";
-        solution_acceptBtn.style.display = "none";
+            solutionUI.style.color = "green";
+            solutionUI.style.border = "2px solid green";
+            solution1_input_1.style.border = "2px solid green";
+            solution1_input_1.style.color = "green";
+            solution1_input_1.style.boxShadow = "0 0 10px green";
+            solution1_input_2.style.border = "2px solid green";
+            solution1_input_2.style.color = "green";
+            solution1_input_2.style.boxShadow = "0 0 10px green";
+            solution1_input_3.style.border = "2px solid green";
+            solution1_input_3.style.color = "green";
+            solution1_input_3.style.boxShadow = "0 0 10px green";
+            solution_acceptBtn.style.display = "none";
+            correct.play();
+
+        setTimeout(() => {
+            solutionBoard.style.display = "none";
+            solutionCircle.style.display = "none";
+        }, 2000);
+
     } else {
         solutionUI.style.color = "red";
         solutionUI.style.border = "2px solid red";
@@ -147,5 +162,29 @@ function checkSolution1() {
         solution1_input_3.style.border = "2px solid red";
         solution1_input_3.style.color = "red";
         solution1_input_3.style.boxShadow = "0 0 10px red";
+
+        hpBarInner.style.width = (hp - 25) + "%";
+        hpText.innerHTML = (hp - 25) + "HP";
+
+        wrong.play();
+        hp -= 25;
+
+        setTimeout(() => {
+            solutionUI.style.color = "#00e5ff";
+            solutionUI.style.border = "2px solid #00e5ff";
+
+            solution1_input_1.style.border = "2px solid #00e5ff";
+            solution1_input_1.style.color = "#00e5ff";
+            solution1_input_1.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution1_input_2.style.border = "2px solid #00e5ff";
+            solution1_input_2.style.color = "#00e5ff";
+            solution1_input_2.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution1_input_3.style.border = "2px solid #00e5ff";
+            solution1_input_3.style.color = "#00e5ff";
+            solution1_input_3.style.boxShadow = "0 0 10px #00e5ff";
+
+        }, 3000);
     }
 }
