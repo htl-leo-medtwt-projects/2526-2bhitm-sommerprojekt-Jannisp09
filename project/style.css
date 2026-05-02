@@ -403,7 +403,7 @@ input[type="checkbox"] {
     color: #00e5ff;
     padding: 20px;
     width: 500px;
-    height: 400px;
+    height: 370px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,4 +429,52 @@ input[type="checkbox"] {
     font-size: 18px;
     font-family: 'Audiowide', cursive;
     top: 3%;
+}
+
+#solution1_img {
+    width: 60%;
+    height: auto;
+    margin-top: 2%;
+}
+
+#level1_solution_input {
+    display: flex;
+    width: 60%;
+    padding: 10px;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#solution1_input_1, #solution1_input_2, #solution1_input_3 {
+    width: 10%;
+    padding: 13px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-shadow: 0 0 10px #00e5ff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#solution_acceptBtn {
+    width: 60%;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00e5ff;
+    transition: 0.2s;
+    margin-top: 6%;
 }
