@@ -67,12 +67,12 @@ function startSetup() {
 
 function backToGame() {
     inventoryOverlay.style.display = "none";
+    solutionBoard.style.display = "none";
     backClick.play();
 }
 
 function openInventory() {
     inventoryOverlay.style.display = "grid";
-    console.log("Inventory geöffnet");
     click.play();
 }
 

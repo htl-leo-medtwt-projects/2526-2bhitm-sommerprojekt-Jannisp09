@@ -32,6 +32,7 @@ function isColliding(div1, div2, tolerance) {
 
 let player = document.getElementById("player");
 let solutionCircle = document.getElementById("solutionCircle");
+let solutionBoard = document.getElementById("solutionBoard");
 
 let solutionTriggered = false;
 
@@ -47,6 +48,6 @@ function checkCollision() {
 }
 
 function onSolutionFound() {
-    alert("Lösung gefunden!");
+    solutionBoard.style.display = "grid";
     solutionTriggered = false;
 }

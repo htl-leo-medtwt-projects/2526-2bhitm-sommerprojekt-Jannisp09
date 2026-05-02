@@ -214,7 +214,7 @@ input[type="checkbox"] {
   left: 200px;
   top: 100px;
   width: 58px; /* viewing window */
-  height: 200px; /* viewing window */
+  height: 150px; /* viewing window */
   overflow: hidden;
   opacity: 1;
 }
@@ -383,4 +383,50 @@ input[type="checkbox"] {
     100% {
         background-color: #00e5ff89;
     }
+}
+
+#solutionBoard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#solutionUI {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    padding: 20px;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    position: relative;
+}
+
+#backBtnSolution {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    transition: 0.3s;
+}
+
+#backBtnSolution:hover {
+    color: #ff5005;
+}
+
+#solutionText {
+    font-size: 18px;
+    font-family: 'Audiowide', cursive;
+    top: 3%;
 }
