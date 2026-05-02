@@ -1,22 +1,32 @@
-{
-  "level_1": {
-    "1": {
-      "text": "Haa? Wo bin ich hier? Ich muss sofort hier weg! Vielleicht sagen ja diese Symbole am Boden was aus!",
-      "speech": "../sound/dialoge/level1_1.mp3"
-    },
-    "2": {
-      "text": "Ich verstehe es nicht ganz? ... Warum bin ich hier? Und warum bin ich ein fetter Roboter?",
-      "speech": "../sound/dialoge/level1_2.mp3"
-    },
-    "3": {
-      "text": "Sehr gut! Jetzt müssen wir nur noch so weiter machen!",
-      "speech": "../sound/dialoge/level1_3.mp3"
-    }
+[
+  {
+    "level": 1,
+    "dialogs": [
+      {
+        "id": 1,
+        "text": "Haa? Wo bin ich hier? Ich muss sofort hier weg! Vielleicht sagen ja diese Symbole am Boden was aus!",
+        "speech": "../sound/dialoge/level1_1.mp3"
+      },
+      {
+        "id": 2,
+        "text": "Ich verstehe es nicht ganz? ... Warum bin ich hier? Und warum bin ich ein fetter Roboter?",
+        "speech": "../sound/dialoge/level1_2.mp3"
+      },
+      {
+        "id": 3,
+        "text": "Sehr gut! Jetzt müssen wir nur noch so weiter machen!",
+        "speech": "../sound/dialoge/level1_3.mp3"
+      }
+    ]
   },
-  "level_2": {
-    "1": {
-      "text": "Oh mein Gott! Wie soll man das lösen können?",
-      "speech": "../sound/dialoge/level2_1.mp3"
-    }
+  {
+    "level": 2,
+    "dialogs": [
+      {
+        "id": 1,
+        "text": "Oh mein Gott! Wie soll man das lösen können?",
+        "speech": "../sound/dialoge/level2_1.mp3"
+      }
+    ]
   }
-}
+]

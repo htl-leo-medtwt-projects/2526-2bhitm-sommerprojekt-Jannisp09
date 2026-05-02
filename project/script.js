@@ -169,6 +169,13 @@ function checkSolution1() {
         wrong.play();
         hp -= 25;
 
+        if (hp <= 0) {
+            backToStart();
+            hp = 100;
+            solutionBoard.style.display = "none";
+        }
+
+
         setTimeout(() => {
             solutionUI.style.color = "#00e5ff";
             solutionUI.style.border = "2px solid #00e5ff";
