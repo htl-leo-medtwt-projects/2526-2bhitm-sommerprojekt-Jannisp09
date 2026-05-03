@@ -120,6 +120,7 @@ let solution_acceptBtn = document.getElementById("solution_acceptBtn");
 let solutionUI = document.getElementById("solutionUI");
 let hpBarInner = document.getElementById("hpBarInner");
 let hpText = document.getElementById("hpText");
+let portal1 = document.getElementById("portal1");
 
 let wrong = new Audio('./sound/wrong.mp3');
 let correct = new Audio('./sound/correct.mp3');
@@ -127,6 +128,7 @@ let correct = new Audio('./sound/correct.mp3');
 let hp = 100;
 hpBarInner.style.width = "100%";
 hpText.innerHTML = hp + "HP";
+portal1.style.display = "none";
 
 
 function checkSolution1() {
@@ -148,6 +150,7 @@ function checkSolution1() {
         setTimeout(() => {
             solutionBoard.style.display = "none";
             solutionCircle.style.display = "none";
+            portal1.style.display = "block";
         }, 2000);
 
     } else {
@@ -179,15 +182,12 @@ function checkSolution1() {
         setTimeout(() => {
             solutionUI.style.color = "#00e5ff";
             solutionUI.style.border = "2px solid #00e5ff";
-
             solution1_input_1.style.border = "2px solid #00e5ff";
             solution1_input_1.style.color = "#00e5ff";
             solution1_input_1.style.boxShadow = "0 0 10px #00e5ff";
-
             solution1_input_2.style.border = "2px solid #00e5ff";
             solution1_input_2.style.color = "#00e5ff";
             solution1_input_2.style.boxShadow = "0 0 10px #00e5ff";
-
             solution1_input_3.style.border = "2px solid #00e5ff";
             solution1_input_3.style.color = "#00e5ff";
             solution1_input_3.style.boxShadow = "0 0 10px #00e5ff";

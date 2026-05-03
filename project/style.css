@@ -477,3 +477,14 @@ input[type="checkbox"] {
     transition: 0.2s;
     margin-top: 6%;
 }
+
+.portal {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    width: 30%;
+    height: auto;
+    mix-blend-mode: screen; /* Von AI: Video war nicht transparent */
+}
