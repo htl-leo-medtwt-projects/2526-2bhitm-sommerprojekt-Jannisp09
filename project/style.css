@@ -478,25 +478,6 @@ input[type="checkbox"] {
     margin-top: 6%;
 }
 
-.portal-hitbox {
-    position: absolute;
-    top: 50%;
-    left: 93%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    background: transparent;
-}
-
-.portal {
-    width: 300%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: screen !important;
-}
-
 #levelTransition {
     position: fixed;
     top: 0;
