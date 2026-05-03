@@ -8,6 +8,7 @@ let musicIcon = document.getElementById("musicIcon");
 let musicText = document.getElementById("musicText");
 let setupScreen = document.getElementById("setupScreen");
 let inventoryOverlay = document.getElementById("inventoryOverlay");
+let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
 
 // Audio
@@ -21,6 +22,7 @@ settingScreen.style.display = "none";
 setupScreen.style.display = "none";
 level1.style.display = "none";
 inventoryOverlay.style.display = "none";
+levelTransition.style.display = "none";
 
 
 function startDisplay() {
@@ -29,6 +31,7 @@ function startDisplay() {
     setupScreen.style.display = "none";
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
+    levelTransition.style.display = "none";
 }
 
 function settings() {

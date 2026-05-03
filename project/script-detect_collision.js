@@ -47,6 +47,12 @@ function checkCollision() {
     }
 }
 
+function checkPortalCollision() {
+    if (isColliding(player, portal1, 0)) {
+        alert("Congratulations! You have found the portal and completed the level!");
+    }
+}
+
 function onSolutionFound() {
     solutionBoard.style.display = "grid";
     solutionTriggered = false;

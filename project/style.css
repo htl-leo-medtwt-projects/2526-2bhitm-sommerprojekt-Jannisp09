@@ -478,13 +478,36 @@ input[type="checkbox"] {
     margin-top: 6%;
 }
 
-.portal {
+.portal-hitbox {
     position: absolute;
     top: 50%;
-    left: 95%;
+    left: 93%;
     transform: translate(-50%, -50%);
-    overflow: hidden;
-    width: 30%;
-    height: auto;
-    mix-blend-mode: screen; /* Von AI: Video war nicht transparent */
+    width: 120px;
+    height: 120px;
+    background: transparent;
+}
+
+.portal {
+    width: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen !important;
+}
+
+#levelTransition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#transitionVideo {
+    width: 100%;
+    height: 100%;
 }
