@@ -10,6 +10,7 @@ let setupScreen = document.getElementById("setupScreen");
 let inventoryOverlay = document.getElementById("inventoryOverlay");
 let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
+let level2 = document.getElementById("levelTwo");
 
 // Audio
 let audio = new Audio('./sound/bg-music.mp3');
@@ -123,7 +124,7 @@ let solution_acceptBtn = document.getElementById("solution_acceptBtn");
 let solutionUI = document.getElementById("solutionUI");
 let hpBarInner = document.getElementById("hpBarInner");
 let hpText = document.getElementById("hpText");
-let portal1 = document.getElementById("portal1");
+let transitionVideo = document.getElementById("transitionVideo");
 
 let wrong = new Audio('./sound/wrong.mp3');
 let correct = new Audio('./sound/correct.mp3');
@@ -131,7 +132,6 @@ let correct = new Audio('./sound/correct.mp3');
 let hp = 100;
 hpBarInner.style.width = "100%";
 hpText.innerHTML = hp + "HP";
-portal1.style.display = "none";
 
 
 function checkSolution1() {
@@ -153,7 +153,10 @@ function checkSolution1() {
         setTimeout(() => {
             solutionBoard.style.display = "none";
             solutionCircle.style.display = "none";
-            portal1.style.display = "block";
+            levelTransition.style.display = "block";
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            transitionVideo.play();
         }, 2000);
 
     } else {
@@ -198,3 +201,12 @@ function checkSolution1() {
         }, 3000);
     }
 }
+
+
+// AI, wenn das Video zu Ende ist, soll es automatisch weitergehen
+// Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
+transitionVideo.addEventListener("ended", () => {
+    levelTransition.style.display = "none";
+    level1.style.display = "none";
+    level2.style.display = "grid";
+});
