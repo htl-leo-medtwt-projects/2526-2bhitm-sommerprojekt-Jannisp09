@@ -50,20 +50,6 @@ gsap.from("#settingBtn", {
 });
 
 
-function playDialog(d) {
-    const el = document.getElementById("subtitle");
-    el.innerText = d.text;
-    el.style.display = "block";
-
-    const audio = new Audio(d.speech);
-    audio.play();
-
-    audio.onended = function () {
-        el.style.display = "none";
-    };
-}
-
-
 function startDisplay() {
     startScreen.style.display = "none";
     settingScreen.style.display = "none";
