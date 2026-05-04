@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    user-select: none;
 }
 
 #startScreen {
@@ -42,9 +43,13 @@ body {
 
 #startBtn {
     width: 20%;
-    animation: press 2s ease-in-out 0s infinite;
     cursor: pointer;
 }
+
+#startBtnAnimate {
+    animation: press 2s ease-in-out 0s infinite;
+}
+
 #settingBtn {
     width: 12%;
     padding-top: 1%;
@@ -227,13 +232,16 @@ input[type="checkbox"] {
 
 @keyframes press {
     0% {
-        transform: scale(1.0);
+        width: 100%;
+        justify-content: flex-end;
     }
     50% {
-        transform: scale(1.05);
+        width: 90%;
+        justify-content: flex-end;
     }
     100% {
-        transform: scale(1.0);
+        width: 100%;
+        justify-self: flex-end;
     }
 }
 
@@ -352,6 +360,18 @@ input[type="checkbox"] {
 #nothingFound {
     font-size: 18px;
     font-family: 'Audiowide', cursive;
+}
+
+#subtitle {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00e5ff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Audiowide', cursive;
+    font-size: 16px;
 }
 
 #solutionCircle {

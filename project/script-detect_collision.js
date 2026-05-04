@@ -9,14 +9,14 @@
 function isColliding(div1, div2, tolerance) {
 
     let d1OffsetTop = div1.offsetTop;
-    let d1OffsetLeft = div1.offsetLeft; 
+    let d1OffsetLeft = div1.offsetLeft;
     let d1Height = div1.clientHeight;
     let d1Width = div1.clientWidth;
     let d1Top = d1OffsetTop + d1Height
     let d1Left = d1OffsetLeft + d1Width;
 
     let d2OffsetTop = div2.offsetTop;
-    let d2OffsetLeft = div2.offsetLeft; 
+    let d2OffsetLeft = div2.offsetLeft;
     let d2Height = div2.clientHeight;
     let d2Width = div2.clientWidth;
     let d2Top = d2OffsetTop + d2Height;
@@ -39,11 +39,22 @@ let solutionTriggered = false;
 function checkCollision() {
     if (solutionTriggered == false && isColliding(player, solutionCircle, -20)) {
         solutionTriggered = true;
-        keyListenerUp({key: "ArrowLeft"});
-        keyListenerUp({key: "ArrowUp"});
-        keyListenerUp({key: "ArrowRight"});
-        keyListenerUp({key: "ArrowDown"});
+        keyListenerUp({ key: "ArrowLeft" });
+        keyListenerUp({ key: "ArrowUp" });
+        keyListenerUp({ key: "ArrowRight" });
+        keyListenerUp({ key: "ArrowDown" });
         onSolutionFound();
+
+        gsap.set("#solutionUI", {
+            scale: 0.9,
+            opacity: 0
+        });
+        gsap.to("#solutionUI", {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
     }
 }
 

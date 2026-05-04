@@ -25,6 +25,44 @@ level1.style.display = "none";
 inventoryOverlay.style.display = "none";
 levelTransition.style.display = "none";
 
+// Library
+
+let startBtn = document.getElementById("startBtn");
+startBtn.style.animation = "none",
+
+    gsap.from("#logo", {
+        y: -100,
+        opacity: 0,
+        duration: 1
+    });
+
+gsap.from("#startBtn", {
+    scale: 0,
+    duration: 0.5,
+    ease: "back.out(1.7)"
+});
+
+gsap.from("#settingBtn", {
+    scale: 0,
+    duration: 0.5,
+    delay: 0.2,
+    ease: "back.out(1.7)"
+});
+
+
+function playDialog(d) {
+    const el = document.getElementById("subtitle");
+    el.innerText = d.text;
+    el.style.display = "block";
+
+    const audio = new Audio(d.speech);
+    audio.play();
+
+    audio.onended = function () {
+        el.style.display = "none";
+    };
+}
+
 
 function startDisplay() {
     startScreen.style.display = "none";
@@ -78,7 +116,19 @@ function backToGame() {
 function openInventory() {
     inventoryOverlay.style.display = "grid";
     click.play();
+
+    gsap.from("#inventoryUI", {
+        scale: 0.9,
+        opacity: 0,
+        duration: 0.5
+    });
 }
+
+gsap.from("#solutionUI", {
+    scale: 0.9,
+    opacity: 0,
+    duration: 0.5
+});
 
 let playerName = "";
 let dialogues;
@@ -136,19 +186,19 @@ hpText.innerHTML = hp + "HP";
 
 function checkSolution1() {
     if (solution1_input_1.value == solution_level1[0] && solution1_input_2.value == solution_level1[1] && solution1_input_3.value == solution_level1[2]) {
-            solutionUI.style.color = "green";
-            solutionUI.style.border = "2px solid green";
-            solution1_input_1.style.border = "2px solid green";
-            solution1_input_1.style.color = "green";
-            solution1_input_1.style.boxShadow = "0 0 10px green";
-            solution1_input_2.style.border = "2px solid green";
-            solution1_input_2.style.color = "green";
-            solution1_input_2.style.boxShadow = "0 0 10px green";
-            solution1_input_3.style.border = "2px solid green";
-            solution1_input_3.style.color = "green";
-            solution1_input_3.style.boxShadow = "0 0 10px green";
-            solution_acceptBtn.style.display = "none";
-            correct.play();
+        solutionUI.style.color = "green";
+        solutionUI.style.border = "2px solid green";
+        solution1_input_1.style.border = "2px solid green";
+        solution1_input_1.style.color = "green";
+        solution1_input_1.style.boxShadow = "0 0 10px green";
+        solution1_input_2.style.border = "2px solid green";
+        solution1_input_2.style.color = "green";
+        solution1_input_2.style.boxShadow = "0 0 10px green";
+        solution1_input_3.style.border = "2px solid green";
+        solution1_input_3.style.color = "green";
+        solution1_input_3.style.boxShadow = "0 0 10px green";
+        solution_acceptBtn.style.display = "none";
+        correct.play();
 
         setTimeout(() => {
             solutionBoard.style.display = "none";
