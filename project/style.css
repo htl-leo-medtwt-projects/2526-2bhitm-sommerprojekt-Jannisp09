@@ -346,11 +346,15 @@ input[type="checkbox"] {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
     color: #00e5ff;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Audiowide', cursive;
     font-size: 16px;
+    text-align: center;
+    z-index: 10000;
 }
 
 #solutionCircle {

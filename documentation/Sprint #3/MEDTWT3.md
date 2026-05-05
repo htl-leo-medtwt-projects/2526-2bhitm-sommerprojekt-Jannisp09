@@ -13,10 +13,10 @@
 
 ## 🎯 Ziele für Sprint #4
 
-- Einbindung der JSON-Datei ins Gameplay-System
 - Local Storage
 - Einsammelm
-- Level 3-6 (exkl. Finale und GameEnd)
+- Level 2-6 (exkl. Finale und GameEnd)
+- Funktionierendes Sprite auf allen Levels
 
 <br>
 
@@ -33,6 +33,7 @@
 - Berührung der "?"-Box = Öffnet SolutionUI
 - Generierung von Bild Level 2
 - Transitionvideo zu Level 2
+- Einbindung der JSON-Datei ins Gameplay-System
 
 <br>
 

@@ -13,6 +13,50 @@ let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
 
 
+// Dialoge
+let dialoge = {
+  level1: {
+    dialog1: {
+      text: "Haa? Wo bin ich hier? Ich muss sofort hier weg! Vielleicht sagen ja diese Symbole am Boden was aus!",
+      speech: "./sound/dialoge/level1_1.mp3"
+    },
+    dialog2: {
+      text: "Ich verstehe es nicht ganz? ... Warum bin ich hier? Und warum bin ich ein fetter Roboter?",
+      speech: "./sound/dialoge/level1_2.mp3"
+    },
+    dialog3: {
+      text: "Sehr gut! Jetzt müssen wir nur noch so weiter machen!",
+      speech: "./sound/dialoge/level1_3.mp3"
+    },
+    dialog4: {
+        text: "Oh nein! Was machst du da? Du musst die Symbole in der richtigen Reihenfolge eingeben!",
+        speech: "./sound/dialoge/level1_4.mp3"
+    }
+  },
+
+  level2: {
+    dialog1: {
+      text: "Oh mein Gott! Wie soll man das lösen können?",
+      speech: "./sound/dialoge/level2_1.mp3"
+    }
+  }
+};
+
+function playDialog(d) {
+    const el = document.getElementById("subtitle");
+    el.innerText = d.text;
+    el.style.display = "block";
+
+    let audio = new Audio(d.speech);
+    audio.play();
+
+    // AI: Sobald der Dialog zu Ende ist, soll der Untertitel ausgeblendet werden
+    audio.onended = function () {
+        el.style.display = "none";
+    };
+}
+
+
 // Audio
 let audio = new Audio('./sound/bg-music.mp3');
 let startAudio = new Audio('./sound/startGame_sound.mp3');
@@ -131,6 +175,7 @@ function startGame() {
     level1.style.display = "grid";
     startAudio.play();
     playerName = nameInput.value;
+    playDialog(dialoge.level1.dialog1);
 
     if (!loopRunning) {
         loopRunning = true;
@@ -186,6 +231,7 @@ function checkSolution1() {
         solution1_input_3.style.boxShadow = "0 0 10px green";
         solution_acceptBtn.style.display = "none";
         correct.play();
+        playDialog(dialoge.level1.dialog3);
 
         setTimeout(() => {
             solutionBoard.style.display = "none";
@@ -194,7 +240,7 @@ function checkSolution1() {
             transitionVideo.currentTime = 0;
             transitionVideo.muted = false;
             transitionVideo.play();
-        }, 2000);
+        }, 4000);
 
     } else {
         solutionUI.style.color = "red";
@@ -208,29 +254,23 @@ function checkSolution1() {
         solution1_input_3.style.border = "2px solid red";
         solution1_input_3.style.color = "red";
         solution1_input_3.style.boxShadow = "0 0 10px red";
-
         hpBarInner.style.width = (hp - 25) + "%";
         hpText.innerHTML = (hp - 25) + "HP";
-
         wrong.play();
         hp -= 25;
 
-
         function restartLevel1() {
             hp = 100;
-
             hpBarInner.style.width = "100%";
             hpText.innerHTML = hp + "HP";
-
             solution1_input_1.value = "";
             solution1_input_2.value = "";
             solution1_input_3.value = "";
-
             solutionBoard.style.display = "none";
             level1.style.display = "grid";
-
             PLAYER.box.style.left = "60px";
             PLAYER.box.style.top = "60px";
+            playDialog(dialoge.level1.dialog4);
         }
 
         if (hp <= 0) {

@@ -61,4 +61,5 @@ function checkCollision() {
 function onSolutionFound() {
     solutionBoard.style.display = "grid";
     solutionTriggered = false;
+    playDialog(dialoge.level1.dialog2);
 }
