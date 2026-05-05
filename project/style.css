@@ -46,10 +46,6 @@ body {
     cursor: pointer;
 }
 
-#startBtnAnimate {
-    animation: press 2s ease-in-out 0s infinite;
-}
-
 #settingBtn {
     width: 12%;
     padding-top: 1%;
@@ -228,21 +224,6 @@ input[type="checkbox"] {
   top: 0;
   left: 0;
   height: 150px;
-}
-
-@keyframes press {
-    0% {
-        width: 100%;
-        justify-content: flex-end;
-    }
-    50% {
-        width: 90%;
-        justify-content: flex-end;
-    }
-    100% {
-        width: 100%;
-        justify-self: flex-end;
-    }
 }
 
 #hud {
@@ -513,4 +494,15 @@ input[type="checkbox"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#levelTwo {
+    background-image: url("./img/level2.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    transform-origin: top;
 }

@@ -12,6 +12,9 @@ let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
 
+
+
+
 // Audio
 let audio = new Audio('./sound/bg-music.mp3');
 let startAudio = new Audio('./sound/startGame_sound.mp3');

@@ -18,9 +18,7 @@
     <section id="startScreen">
         <img src="./img/logo.png" alt="Logo" id="logo">
         <div id="buttonBox">
-            <div id="startBtnAnimate">
-                <img src="img/startBtn.png" onclick="startSetup()" id="startBtn">
-            </div>
+            <img src="img/startBtn.png" onclick="startSetup()" id="startBtn">
             <img src="img/settingBtn.png" onclick="settings()" id="settingBtn">
         </div>
     </section>
@@ -116,7 +114,23 @@
 
     <!-- Level 2 -->
     <section id="levelTwo">
-        <h1>Level 2</h1>
+        <div id="hud">
+            <div id="hpContainer">
+                <div id="hpBarOuter">
+                    <div id="hpBarInner"></div>
+                </div>
+                <span id="hpText"></span>
+            </div>
+            <div id="levelBoxLeft">
+                2
+            </div>
+        </div>
+        <div id="levelBoxRight" onclick="openInventory()">
+            <img src="./img/rucksack.png" alt="Rucksack" id="rucksack">
+        </div>
+        <div id="player">
+            <img id="spriteImg" src="./img/sprite-figure.png" alt="sprite" />
+        </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
