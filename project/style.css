@@ -112,11 +112,8 @@ body {
     font-family: 'Audiowide', sans-serif;
 }
 
-
 #setupScreen {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-        url("./img/setupScreen.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("./img/setupScreen.png");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -185,9 +182,7 @@ body {
 
 /* W3 Schools */
 #nameInput:focus {
-    box-shadow: 
-        0 0 15px #00e5ff,
-        0 0 30px #00e5ff;
+    box-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
 }
 
 input[type="checkbox"] {
@@ -211,19 +206,22 @@ input[type="checkbox"] {
 }
 
 #player {
-  position: absolute;
-  left: 200px;
-  top: 100px;
-  width: 58px; /* viewing window */
-  height: 150px; /* viewing window */
-  overflow: hidden;
-  opacity: 1;
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    width: 58px;
+    /* viewing window */
+    height: 150px;
+    /* viewing window */
+    overflow: hidden;
+    opacity: 1;
 }
+
 #spriteImg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px;
 }
 
 #hud {
@@ -293,7 +291,7 @@ input[type="checkbox"] {
 }
 
 #levelBoxRight:hover {
-    background-color:#ff5005;
+    background-color: #ff5005;
     cursor: pointer;
 }
 
@@ -377,9 +375,11 @@ input[type="checkbox"] {
     0% {
         background-color: #00e5ff89;
     }
+
     50% {
         background-color: #00e5ff;
     }
+
     100% {
         background-color: #00e5ff89;
     }
@@ -451,7 +451,9 @@ input[type="checkbox"] {
     text-transform: uppercase;
 }
 
-#solution1_input_1, #solution1_input_2, #solution1_input_3 {
+#solution1_input_1,
+#solution1_input_2,
+#solution1_input_3 {
     width: 10%;
     padding: 13px;
     background: rgba(0, 0, 0, 0.9);

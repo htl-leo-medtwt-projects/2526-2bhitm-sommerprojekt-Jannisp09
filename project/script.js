@@ -13,8 +13,6 @@ let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
 
 
-
-
 // Audio
 let audio = new Audio('./sound/bg-music.mp3');
 let startAudio = new Audio('./sound/startGame_sound.mp3');
@@ -121,7 +119,6 @@ gsap.from("#solutionUI", {
 
 let playerName = "";
 let dialogues;
-
 let cmdOverlay = document.getElementById("cmdOverlay");
 let cmdText = document.getElementById("cmdText");
 let cmdInput = document.getElementById("cmdInput");
@@ -133,9 +130,7 @@ function startGame() {
     setupScreen.style.display = "none";
     level1.style.display = "grid";
     startAudio.play();
-
     playerName = nameInput.value;
-    console.log("Player Name: " + playerName);
 
     gameLoop();
 }
@@ -248,4 +243,5 @@ transitionVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
     level1.style.display = "none";
     level2.style.display = "grid";
+    setLevel(2);
 });

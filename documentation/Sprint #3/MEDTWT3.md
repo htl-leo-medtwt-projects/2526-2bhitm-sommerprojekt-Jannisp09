@@ -15,6 +15,7 @@
 
 - Einbindung der JSON-Datei ins Gameplay-System
 - Local Storage
+- Einsammelm
 - Level 3-6 (exkl. Finale und GameEnd)
 
 <br>
@@ -38,7 +39,8 @@
 ## ⚠️ Probleme beim Programmieren
 
 - Animation des StartButton wurde durch GSAP unterbrochen
-- Sprint bewegte sich nicht beim Bau von Level 2
+- Sprite bewegte sich nicht beim Bau von Level 2
+- Aufgrund des Sprite, wollte ich das Einsammeln verschieben
 
 
 <br>

@@ -11,14 +11,12 @@
 let PLAYER = {
     box: document.getElementById('player'),
     spriteImg: document.getElementById('spriteImg'),
-    spriteImgNumber: 0, // current animation frame of sprite image
-    spriteDirection: 1,
-    coinCount: 0
+    spriteImgNumber: 0,
+    spriteDirection: 1
 }
 
 PLAYER.box.style.left = "60px";
 PLAYER.box.style.top = "60px";
-
 
 
 /***********************************
