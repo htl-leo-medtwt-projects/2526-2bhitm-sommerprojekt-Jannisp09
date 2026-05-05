@@ -8,20 +8,16 @@
     <link rel="shortcut icon" href="img/favicon.png">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Scripts -->
     <script src="script_keyevents.js" defer></script>
     <script src="script-player.js" defer></script>
     <script src="script-loop.js" defer></script>
     <script src="script-detect_collision.js" defer></script>
     <script src="script.js" defer></script>
 
-    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
 <body>
-
-<!-- Start Screen -->
 <section id="startScreen">
     <img src="./img/logo.png" id="logo">
     <div id="buttonBox">
@@ -30,7 +26,6 @@
     </div>
 </section>
 
-<!-- Settings -->
 <section id="settingsScreen">
     <div id="settingsUI">
         <div id="backBtn" onclick="backToStart()">← Back</div>
@@ -55,7 +50,6 @@
     </div>
 </section>
 
-<!-- Setup -->
 <section id="setupScreen">
     <div id="setupUI">
         <img src="./img/figure.png" id="roboter">
@@ -66,7 +60,6 @@
     </div>
 </section>
 
-<!-- Inventory -->
 <section id="inventoryOverlay">
     <div id="inventoryUI">
         <div id="backBtnInventory" onclick="backToGame()">← Back</div>
@@ -74,14 +67,12 @@
     </div>
 </section>
 
-<!-- Level Transition -->
 <section id="levelTransition">
     <video id="transitionVideo">
         <source src="./video/level_transition.mp4">
     </video>
 </section>
 
-<!-- Level 1 -->
 <section id="levelOne">
     <div id="hud">
         <div id="hpContainer">
@@ -105,7 +96,6 @@
     <div id="solutionCircle">?</div>
 </section>
 
-<!-- Solution Board -->
 <section id="solutionBoard">
     <div id="solutionUI">
         <div id="backBtnSolution" onclick="backToGame()">← Back</div>
@@ -122,7 +112,6 @@
     </div>
 </section>
 
-<!-- Level 2 -->
 <section id="levelTwo">
     <div id="hud">
         <div id="hpContainer">

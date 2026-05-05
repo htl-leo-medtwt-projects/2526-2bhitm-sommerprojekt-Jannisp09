@@ -2,7 +2,13 @@
 /// <reference path="script-player.js" />
 /// <reference path="script.js" />
 
+let loopRunning = false;
+
 function gameLoop() {
+    if (!loopRunning) { 
+        return;
+    }
+
     if (KEY_EVENTS.leftArrow) {
         movePlayer((-1) * GAME_CONFIG.characterSpeed, 0, -1);
         animatePlayer();    

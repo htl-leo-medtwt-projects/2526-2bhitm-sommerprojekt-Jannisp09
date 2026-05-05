@@ -132,7 +132,10 @@ function startGame() {
     startAudio.play();
     playerName = nameInput.value;
 
-    gameLoop();
+    if (!loopRunning) {
+        loopRunning = true;
+        gameLoop();
+    }
 }
 
 let GAME_SCREEN = {
@@ -212,10 +215,26 @@ function checkSolution1() {
         wrong.play();
         hp -= 25;
 
-        if (hp <= 0) {
-            backToStart();
+
+        function restartLevel1() {
             hp = 100;
+
+            hpBarInner.style.width = "100%";
+            hpText.innerHTML = hp + "HP";
+
+            solution1_input_1.value = "";
+            solution1_input_2.value = "";
+            solution1_input_3.value = "";
+
             solutionBoard.style.display = "none";
+            level1.style.display = "grid";
+
+            PLAYER.box.style.left = "60px";
+            PLAYER.box.style.top = "60px";
+        }
+
+        if (hp <= 0) {
+            restartLevel1();
         }
 
 
