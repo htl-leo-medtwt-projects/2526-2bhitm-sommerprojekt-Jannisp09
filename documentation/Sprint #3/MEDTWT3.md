@@ -27,7 +27,7 @@
   - HP = 0 → Game Over 
 - GSAP-Library
 - Erstellung der Script-Dateien:
-  - `script-detect_collision.js
+  - `script-detect_collision.js`
 - funktionierende HUD-Anzeige (HP, Level, UI-Elemente)
 - Berührung der "?"-Box = Öffnet SolutionUI
 - Generierung von Bild Level 2
@@ -44,4 +44,4 @@
 <br>
 
 ## Screenshot
-![Sprint 2 GitHub Insights](image.png)
+![Sprint 3 GitHub Insights](image.png)
