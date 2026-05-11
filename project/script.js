@@ -1,6 +1,37 @@
 /// <reference path="script_keyevents.js" />
 /// <reference path="script-player.js" />
 
+let LEVELS = {
+    1: {
+        element: document.getElementById("levelOne"),
+        spawnX: 60,
+        spawnY: 60
+    },
+
+    2: {
+        element: document.getElementById("levelTwo"),
+        spawnX: 100,
+        spawnY: 100
+    }
+};
+
+let CURRENT_LEVEL = null;
+
+function hideAllLevels() {
+    Object.values(LEVELS).forEach(level => {
+        level.element.style.display = "none";
+    });
+}
+
+function setLevel(levelNumber) {
+    hideAllLevels();
+    CURRENT_LEVEL = LEVELS[levelNumber];
+    CURRENT_LEVEL.element.style.display = "grid";
+    PLAYER.box.style.left = CURRENT_LEVEL.spawnX + "px";
+    PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
+    GAME_SCREEN.surface = CURRENT_LEVEL.element;
+}
+
 let nameInput = document.getElementById("nameInput");
 let startScreen = document.getElementById("startScreen");
 let settingScreen = document.getElementById("settingsScreen");
@@ -15,31 +46,31 @@ let level2 = document.getElementById("levelTwo");
 
 // Dialoge
 let dialoge = {
-  level1: {
-    dialog1: {
-      text: "Haa? Wo bin ich hier? Ich muss sofort hier weg! Vielleicht sagen ja diese Symbole am Boden was aus!",
-      speech: "./sound/dialoge/level1_1.mp3"
+    level1: {
+        dialog1: {
+            text: "Haa? Wo bin ich hier? Ich muss sofort hier weg! Vielleicht sagen ja diese Symbole am Boden was aus!",
+            speech: "./sound/dialoge/level1_1.mp3"
+        },
+        dialog2: {
+            text: "Ich verstehe es nicht ganz? ... Warum bin ich hier? Und warum bin ich ein fetter Roboter?",
+            speech: "./sound/dialoge/level1_2.mp3"
+        },
+        dialog3: {
+            text: "Sehr gut! Jetzt müssen wir nur noch so weiter machen!",
+            speech: "./sound/dialoge/level1_3.mp3"
+        },
+        dialog4: {
+            text: "Oh nein! Was machst du da? Du musst die Symbole in der richtigen Reihenfolge eingeben!",
+            speech: "./sound/dialoge/level1_4.mp3"
+        }
     },
-    dialog2: {
-      text: "Ich verstehe es nicht ganz? ... Warum bin ich hier? Und warum bin ich ein fetter Roboter?",
-      speech: "./sound/dialoge/level1_2.mp3"
-    },
-    dialog3: {
-      text: "Sehr gut! Jetzt müssen wir nur noch so weiter machen!",
-      speech: "./sound/dialoge/level1_3.mp3"
-    },
-    dialog4: {
-        text: "Oh nein! Was machst du da? Du musst die Symbole in der richtigen Reihenfolge eingeben!",
-        speech: "./sound/dialoge/level1_4.mp3"
-    }
-  },
 
-  level2: {
-    dialog1: {
-      text: "Oh mein Gott! Wie soll man das lösen können?",
-      speech: "./sound/dialoge/level2_1.mp3"
+    level2: {
+        dialog1: {
+            text: "Oh mein Gott! Wie soll man das lösen können?",
+            speech: "./sound/dialoge/level2_1.mp3"
+        }
     }
-  }
 };
 
 function playDialog(d) {
@@ -172,9 +203,9 @@ function startGame() {
     startScreen.style.display = "none";
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";
-    level1.style.display = "grid";
     startAudio.play();
     playerName = nameInput.value;
+    setLevel(1);
     playDialog(dialoge.level1.dialog1);
 
     if (!loopRunning) {
@@ -300,7 +331,5 @@ function checkSolution1() {
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
 transitionVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
-    level1.style.display = "none";
-    level2.style.display = "grid";
     setLevel(2);
 });

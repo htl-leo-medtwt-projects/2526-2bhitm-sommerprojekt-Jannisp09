@@ -206,15 +206,13 @@ input[type="checkbox"] {
 }
 
 #player {
-    position: absolute;
-    left: 200px;
-    top: 100px;
+    position: fixed;
+    left: 60px;
+    top: 60px;
     width: 58px;
-    /* viewing window */
     height: 150px;
-    /* viewing window */
     overflow: hidden;
-    opacity: 1;
+    z-index: 9999;
 }
 
 #spriteImg {

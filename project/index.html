@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,121 +19,113 @@
 </head>
 
 <body>
-<section id="startScreen">
-    <img src="./img/logo.png" id="logo">
-    <div id="buttonBox">
-        <img src="img/startBtn.png" onclick="startSetup()" id="startBtn">
-        <img src="img/settingBtn.png" onclick="settings()" id="settingBtn">
-    </div>
-</section>
-
-<section id="settingsScreen">
-    <div id="settingsUI">
-        <div id="backBtn" onclick="backToStart()">← Back</div>
-
-        <div class="settingRow">
-            <div class="icon" id="musicIcon" onclick="startMusic()">▶</div>
-            <div class="label" id="musicText">MUSIC OFF</div>
+    <section id="startScreen">
+        <img src="./img/logo.png" id="logo">
+        <div id="buttonBox">
+            <img src="img/startBtn.png" onclick="startSetup()" id="startBtn">
+            <img src="img/settingBtn.png" onclick="settings()" id="settingBtn">
         </div>
+    </section>
 
-        <div class="settingRow">
-            <div class="icon">🎮</div>
-            <div class="label">
-                CONTROL WITH ARROWKEYS <input type="checkbox" checked><br>
-                CONTROL WITH WASD <input type="checkbox">
+    <section id="settingsScreen">
+        <div id="settingsUI">
+            <div id="backBtn" onclick="backToStart()">← Back</div>
+
+            <div class="settingRow">
+                <div class="icon" id="musicIcon" onclick="startMusic()">▶</div>
+                <div class="label" id="musicText">MUSIC OFF</div>
+            </div>
+
+            <div class="settingRow">
+                <div class="icon">🎮</div>
+                <div class="label">
+                    CONTROL WITH ARROWKEYS <input type="checkbox" checked><br>
+                    CONTROL WITH WASD <input type="checkbox">
+                </div>
+            </div>
+
+            <div class="settingRow">
+                <div class="icon">🗂️</div>
+                <div class="label delete">DELETE PROGRESS</div>
             </div>
         </div>
+    </section>
 
-        <div class="settingRow">
-            <div class="icon">🗂️</div>
-            <div class="label delete">DELETE PROGRESS</div>
-        </div>
-    </div>
-</section>
-
-<section id="setupScreen">
-    <div id="setupUI">
-        <img src="./img/figure.png" id="roboter">
-        <div id="inputRow">
-            <input type="text" id="nameInput" placeholder="GIB DEINEN NAMEN EIN...">
-            <button onclick="startGame()" id="acceptBtn">START GAME</button>
-        </div>
-    </div>
-</section>
-
-<section id="inventoryOverlay">
-    <div id="inventoryUI">
-        <div id="backBtnInventory" onclick="backToGame()">← Back</div>
-        <p id="nothingFound">Es wurde noch kein Objekt gefunden.</p>
-    </div>
-</section>
-
-<section id="levelTransition">
-    <video id="transitionVideo">
-        <source src="./video/level_transition.mp4">
-    </video>
-</section>
-
-<section id="levelOne">
-    <div id="hud">
-        <div id="hpContainer">
-            <div id="hpBarOuter">
-                <div id="hpBarInner"></div>
+    <section id="setupScreen">
+        <div id="setupUI">
+            <img src="./img/figure.png" id="roboter">
+            <div id="inputRow">
+                <input type="text" id="nameInput" placeholder="GIB DEINEN NAMEN EIN...">
+                <button onclick="startGame()" id="acceptBtn">START GAME</button>
             </div>
-            <span id="hpText"></span>
         </div>
-        <div id="levelBoxLeft">1</div>
-    </div>
+    </section>
 
-    <div id="levelBoxRight" onclick="openInventory()">
-        <img src="./img/rucksack.png" id="rucksack">
-    </div>
+    <section id="inventoryOverlay">
+        <div id="inventoryUI">
+            <div id="backBtnInventory" onclick="backToGame()">← Back</div>
+            <p id="nothingFound">Es wurde noch kein Objekt gefunden.</p>
+        </div>
+    </section>
+
+    <section id="levelTransition">
+        <video id="transitionVideo">
+            <source src="./video/level_transition.mp4">
+        </video>
+    </section>
+
+    <section id="levelOne">
+        <div id="hud">
+            <div id="hpContainer">
+                <div id="hpBarOuter">
+                    <div id="hpBarInner"></div>
+                </div>
+                <span id="hpText"></span>
+            </div>
+            <div id="levelBoxLeft">1</div>
+        </div>
+
+        <div id="levelBoxRight" onclick="openInventory()">
+            <img src="./img/rucksack.png" id="rucksack">
+        </div>
+
+        <div id="subtitle"></div>
+        <div id="solutionCircle">?</div>
+    </section>
+
+    <section id="solutionBoard">
+        <div id="solutionUI">
+            <div id="backBtnSolution" onclick="backToGame()">← Back</div>
+            <p id="solutionText">Gib hier deine Lösung ein!</p>
+            <img src="./img/solution_level-one.png" id="solution1_img">
+            <div id="level1_solution_input">
+                <input id="solution1_input_1">
+                <input id="solution1_input_2">
+                <input id="solution1_input_3">
+            </div>
+            <button onclick="checkSolution1()" id="solution_acceptBtn">
+                LÖSUNG PRÜFEN
+            </button>
+        </div>
+    </section>
+
+    <section id="levelTwo">
+        <div id="hud">
+            <div id="hpContainer">
+                <div id="hpBarOuter">
+                    <div id="hpBarInner"></div>
+                </div>
+                <span id="hpText"></span>
+            </div>
+            <div id="levelBoxLeft">2</div>        <img src="./img/rucksack.png" id="rucksack">
+        </div>
+        <div id="subtitle"></div>
+    </section>
 
     <div id="player">
         <img id="spriteImg" src="./img/sprite-figure.png">
     </div>
-
-    <div id="subtitle"></div>
-    <div id="solutionCircle">?</div>
-</section>
-
-<section id="solutionBoard">
-    <div id="solutionUI">
-        <div id="backBtnSolution" onclick="backToGame()">← Back</div>
-        <p id="solutionText">Gib hier deine Lösung ein!</p>
-        <img src="./img/solution_level-one.png" id="solution1_img">
-        <div id="level1_solution_input">
-            <input id="solution1_input_1">
-            <input id="solution1_input_2">
-            <input id="solution1_input_3">
-        </div>
-        <button onclick="checkSolution1()" id="solution_acceptBtn">
-            LÖSUNG PRÜFEN
-        </button>
-    </div>
-</section>
-
-<section id="levelTwo">
-    <div id="hud">
-        <div id="hpContainer">
-            <div id="hpBarOuter">
-                <div id="hpBarInner"></div>
-            </div>
-            <span id="hpText"></span>
-        </div>
-        <div id="levelBoxLeft">2</div>
-    </div>
-
-    <div id="levelBoxRight" onclick="openInventory()">
-        <img src="./img/rucksack.png" id="rucksack">
-    </div>
-
-    <div id="player">
-        <img id="spriteImg" src="./img/sprite-figure.png">
-    </div>
-
-    <div id="subtitle"></div>
-</section>
 
 </body>
+
 </html>
