@@ -42,6 +42,7 @@ let inventoryOverlay = document.getElementById("inventoryOverlay");
 let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
+let levelImportant = document.getElementById("levelImportant");
 
 
 // Dialoge
@@ -100,6 +101,7 @@ setupScreen.style.display = "none";
 level1.style.display = "none";
 inventoryOverlay.style.display = "none";
 levelTransition.style.display = "none";
+levelImportant.style.display = "none";
 
 // Library
 
@@ -133,6 +135,7 @@ function startDisplay() {
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
     levelTransition.style.display = "none";
+    levelImportant.style.display = "none";
 }
 
 function settings() {
@@ -141,6 +144,7 @@ function settings() {
     setupScreen.style.display = "none";
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
+    levelImportant.style.display = "none";
     click.play();
 }
 
@@ -150,6 +154,7 @@ function backToStart() {
     setupScreen.style.display = "none";
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
+    levelImportant.style.display = "none";
     backClick.play();
 }
 
@@ -166,6 +171,7 @@ function startSetup() {
     setupScreen.style.display = "grid";
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
+    levelImportant.style.display = "none";
     click.play();
 }
 
@@ -203,6 +209,7 @@ function startGame() {
     startScreen.style.display = "none";
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";
+    levelImportant.style.display = "block";
     startAudio.play();
     playerName = nameInput.value;
     setLevel(1);
