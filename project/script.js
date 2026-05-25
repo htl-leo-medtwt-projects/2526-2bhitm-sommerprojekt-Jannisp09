@@ -9,13 +9,11 @@ function getAllSaves() {
 
 function saveGame() {
     let saves = getAllSaves();
-
     saves[currentPlayerName] = {
         hp: hp,
-        level: currentLevel,
+        level: CURRENT_LEVEL_NUMBER,
         inventory: inventory
     };
-
     localStorage.setItem("protocol_savegames", JSON.stringify(saves));
 }
 
@@ -27,12 +25,12 @@ function loadGame(playerName) {
         currentPlayerName = playerName;
 
         hp = saves[playerName].hp;
-        currentLevel = saves[playerName].level;
         inventory = saves[playerName].inventory;
 
-        updateHPBar();
+        hpBarInner.style.width = hp + "%";
+        hpText.innerHTML = hp + "HP";
 
-        loadLevel(currentLevel);
+        setLevel(saves[playerName].level);
 
         console.log("Spielstand geladen");
     }
@@ -57,6 +55,7 @@ let LEVELS = {
 };
 
 let CURRENT_LEVEL = null;
+let CURRENT_LEVEL_NUMBER = 1;
 
 function hideAllLevels() {
     Object.values(LEVELS).forEach(level => {
@@ -67,14 +66,18 @@ function hideAllLevels() {
 function setLevel(levelNumber) {
     hideAllLevels();
     CURRENT_LEVEL = LEVELS[levelNumber];
+    CURRENT_LEVEL_NUMBER = levelNumber;
     CURRENT_LEVEL.element.style.display = "grid";
     PLAYER.box.style.left = CURRENT_LEVEL.spawnX + "px";
     PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
     GAME_SCREEN.surface = CURRENT_LEVEL.element;
     levelBoxLeft.innerText = levelNumber;
+
+    saveGame();
 }
 
 let nameInput = document.getElementById("nameInput");
+let saveSelect = document.getElementById("saveSelect");
 let startScreen = document.getElementById("startScreen");
 let settingScreen = document.getElementById("settingsScreen");
 let musicIcon = document.getElementById("musicIcon");
@@ -189,6 +192,7 @@ function settings() {
     inventoryOverlay.style.display = "none";
     levelImportant.style.display = "none";
     click.play();
+    loadSaveNames();
 }
 
 function backToStart() {
@@ -206,6 +210,22 @@ function startMusic() {
     audio.volume = 0.5;
     musicIcon.innerHTML = "❚❚";
     musicText.innerHTML = "MUSIC ON";
+}
+
+function loadSaveNames() {
+    let saves = getAllSaves();
+
+    saveSelect.innerHTML = '<option value="">Select Savegame</option>';
+
+    Object.keys(saves).forEach(saveName => {
+        saveSelect.innerHTML += `<option value="${saveName}">${saveName}</option>`;
+    });
+}
+
+function selectSavegame() {
+    if (saveSelect.value != "") {
+        nameInput.value = saveSelect.value;
+    }
 }
 
 function startSetup() {
@@ -247,6 +267,7 @@ let cmdOverlay = document.getElementById("cmdOverlay");
 let cmdText = document.getElementById("cmdText");
 let cmdInput = document.getElementById("cmdInput");
 
+let inventory = [];
 
 function startGame() {
     startScreen.style.display = "none";
@@ -255,8 +276,6 @@ function startGame() {
     levelImportant.style.display = "block";
     startAudio.play();
     playerName = nameInput.value;
-    setLevel(1);
-    playDialog(dialoge.level1.dialog1);
 
     if (!loopRunning) {
         loopRunning = true;
@@ -271,10 +290,10 @@ function startGame() {
 
     } else {
         hp = 100;
-        currentLevel = 1;
         inventory = [];
+        setLevel(1);
         saveGame();
-        loadLevel(1);
+        playDialog(dialoge.level1.dialog1);
     }
 }
 
@@ -367,11 +386,11 @@ function checkSolution1() {
             PLAYER.box.style.left = "60px";
             PLAYER.box.style.top = "60px";
             playDialog(dialoge.level1.dialog4);
+            saveGame();
         }
 
         if (hp <= 0) {
             restartLevel1();
-            saveGame();
         }
 
 

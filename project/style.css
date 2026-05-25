@@ -113,7 +113,7 @@ body {
 }
 
 #setupScreen {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("./img/setupScreen.png");
+    background-image: url("./img/setupScreen.png");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -178,6 +178,24 @@ body {
 #acceptBtn:hover {
     background: #00e5ff;
     color: black;
+}
+
+#saveSelect {
+    width: 324px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-shadow: 0 0 10px #00e5ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+#saveSelect:focus {
+    box-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
 }
 
 /* W3 Schools */

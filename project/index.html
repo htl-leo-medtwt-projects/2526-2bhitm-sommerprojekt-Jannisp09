@@ -54,9 +54,15 @@
     <section id="setupScreen">
         <div id="setupUI">
             <img src="./img/figure.png" id="roboter">
+            
             <div id="inputRow">
                 <input type="text" id="nameInput" placeholder="GIB DEINEN NAMEN EIN...">
-                <button onclick="startGame()" id="acceptBtn">START GAME</button>
+                <select id="saveSelect" onchange="selectSavegame()">
+                    <option value="">SELECT SAVEGAME</option>
+                </select>
+                <button onclick="startGame()" id="acceptBtn">
+                    START GAME
+                </button>
             </div>
         </div>
     </section>
