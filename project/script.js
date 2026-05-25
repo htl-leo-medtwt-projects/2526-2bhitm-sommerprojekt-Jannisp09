@@ -1,6 +1,47 @@
 /// <reference path="script_keyevents.js" />
 /// <reference path="script-player.js" />
 
+let currentPlayerName = "";
+
+function getAllSaves() {
+    return JSON.parse(localStorage.getItem("protocol_savegames")) || {};
+}
+
+function saveGame() {
+    let saves = getAllSaves();
+
+    saves[currentPlayerName] = {
+        hp: hp,
+        level: currentLevel,
+        inventory: inventory
+    };
+
+    localStorage.setItem("protocol_savegames", JSON.stringify(saves));
+}
+
+function loadGame(playerName) {
+    let saves = getAllSaves();
+
+    if (saves[playerName]) {
+
+        currentPlayerName = playerName;
+
+        hp = saves[playerName].hp;
+        currentLevel = saves[playerName].level;
+        inventory = saves[playerName].inventory;
+
+        updateHPBar();
+
+        loadLevel(currentLevel);
+
+        console.log("Spielstand geladen");
+    }
+    else {
+        console.log("Kein Spielstand gefunden");
+    }
+}
+
+
 let LEVELS = {
     1: {
         element: document.getElementById("levelOne"),
@@ -30,6 +71,7 @@ function setLevel(levelNumber) {
     PLAYER.box.style.left = CURRENT_LEVEL.spawnX + "px";
     PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
     GAME_SCREEN.surface = CURRENT_LEVEL.element;
+    levelBoxLeft.innerText = levelNumber;
 }
 
 let nameInput = document.getElementById("nameInput");
@@ -43,6 +85,7 @@ let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
 let levelImportant = document.getElementById("levelImportant");
+let levelBoxLeft = document.getElementById("levelBoxLeft");
 
 
 // Dialoge
@@ -219,6 +262,20 @@ function startGame() {
         loopRunning = true;
         gameLoop();
     }
+
+    currentPlayerName = nameInput.value;
+    let saves = getAllSaves();
+
+    if (saves[currentPlayerName]) {
+        loadGame(currentPlayerName);
+
+    } else {
+        hp = 100;
+        currentLevel = 1;
+        inventory = [];
+        saveGame();
+        loadLevel(1);
+    }
 }
 
 let GAME_SCREEN = {
@@ -296,6 +353,7 @@ function checkSolution1() {
         hpText.innerHTML = (hp - 25) + "HP";
         wrong.play();
         hp -= 25;
+        saveGame();
 
         function restartLevel1() {
             hp = 100;
@@ -313,6 +371,7 @@ function checkSolution1() {
 
         if (hp <= 0) {
             restartLevel1();
+            saveGame();
         }
 
 
