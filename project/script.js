@@ -72,8 +72,6 @@ function setLevel(levelNumber) {
     PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
     GAME_SCREEN.surface = CURRENT_LEVEL.element;
     levelBoxLeft.innerText = levelNumber;
-
-    saveGame();
 }
 
 let nameInput = document.getElementById("nameInput");
@@ -192,7 +190,6 @@ function settings() {
     inventoryOverlay.style.display = "none";
     levelImportant.style.display = "none";
     click.play();
-    loadSaveNames();
 }
 
 function backToStart() {
@@ -236,6 +233,7 @@ function startSetup() {
     inventoryOverlay.style.display = "none";
     levelImportant.style.display = "none";
     click.play();
+    loadSaveNames();
 }
 
 function backToGame() {
@@ -275,6 +273,7 @@ function startGame() {
     setupScreen.style.display = "none";
     levelImportant.style.display = "block";
     startAudio.play();
+    currentPlayerName = nameInput.value;
     playerName = nameInput.value;
 
     if (!loopRunning) {
@@ -282,7 +281,6 @@ function startGame() {
         gameLoop();
     }
 
-    currentPlayerName = nameInput.value;
     let saves = getAllSaves();
 
     if (saves[currentPlayerName]) {
@@ -417,4 +415,5 @@ function checkSolution1() {
 transitionVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
     setLevel(2);
+    saveGame();
 });
