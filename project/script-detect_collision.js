@@ -37,6 +37,8 @@ let solutionCircleTwo1 = document.getElementById("solutionCircleTwo1");
 let solutionBoard2 = document.getElementById("solutionBoard2");
 let solutionCircleTwo2 = document.getElementById("solutionCircleTwo2");
 let solutionBoard3 = document.getElementById("solutionBoard3");
+let solutionCircleTwoS = document.getElementById("solutionCircleTwoS");
+let solutionBoardLvlTwo = document.getElementById("solutionBoardLvlTwo");
 
 let solutionTriggered = false;
 
@@ -79,7 +81,6 @@ function checkCollision() {
         keyListenerUp({ key: "ArrowDown" });
 
         solutionBoard2.style.display = "grid";
-        playDialog(dialoge.level2.dialog1);
 
         gsap.set("#solutionUI", {
             scale: 0.9,
@@ -94,35 +95,63 @@ function checkCollision() {
         });
         solutionTriggered = false;
     }
-     // LEVEL 2 - BOX 2
-if (
-    solutionTriggered == false &&
-    isColliding(player, solutionCircleTwo2, -20)
-) {
 
-    solutionTriggered = true;
+    if (
+        solutionTriggered == false &&
+        isColliding(player, solutionCircleTwo2, -20)
+    ) {
 
-    keyListenerUp({ key: "ArrowLeft" });
-    keyListenerUp({ key: "ArrowUp" });
-    keyListenerUp({ key: "ArrowRight" });
-    keyListenerUp({ key: "ArrowDown" });
+        solutionTriggered = true;
 
-    solutionBoard3.style.display = "grid";
+        keyListenerUp({ key: "ArrowLeft" });
+        keyListenerUp({ key: "ArrowUp" });
+        keyListenerUp({ key: "ArrowRight" });
+        keyListenerUp({ key: "ArrowDown" });
 
-    gsap.set("#solutionUI", {
-        scale: 0.9,
-        opacity: 0
-    });
+        solutionBoard3.style.display = "grid";
 
-    gsap.to("#solutionUI", {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power2.out"
-    });
+        gsap.set("#solutionUI", {
+            scale: 0.9,
+            opacity: 0
+        });
 
-    solutionTriggered = false;
-}
+        gsap.to("#solutionUI", {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+
+        solutionTriggered = false;
+    }
+    if (
+        solutionTriggered == false &&
+        isColliding(player, solutionCircleTwoS, -20)
+    ) {
+
+        solutionTriggered = true;
+
+        keyListenerUp({ key: "ArrowLeft" });
+        keyListenerUp({ key: "ArrowUp" });
+        keyListenerUp({ key: "ArrowRight" });
+        keyListenerUp({ key: "ArrowDown" });
+
+        solutionBoardLvlTwo.style.display = "grid";
+
+        gsap.set("#solutionUI", {
+            scale: 0.9,
+            opacity: 0
+        });
+
+        gsap.to("#solutionUI", {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+
+        solutionTriggered = false;
+    }
 }
 
 function onSolutionFound() {

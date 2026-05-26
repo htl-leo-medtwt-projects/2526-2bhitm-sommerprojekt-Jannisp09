@@ -464,7 +464,7 @@ input[type="checkbox"] {
     }
 }
 
-#solutionBoard, #solutionBoard2, #solutionBoard3 {
+#solutionBoard, #solutionBoard2, #solutionBoard3, #solutionBoardLvlTwo {
     position: fixed;
     top: 0;
     left: 0;
@@ -545,7 +545,12 @@ input[type="checkbox"] {
 
 #solution1_input_1,
 #solution1_input_2,
-#solution1_input_3 {
+#solution1_input_3,
+#solution2_input_1,
+#solution2_input_2,
+#solution2_input_3,
+#solution2_input_4,
+#solution2_input_5 {
     width: 10%;
     padding: 13px;
     background: rgba(0, 0, 0, 0.9);
