@@ -239,6 +239,8 @@ function startSetup() {
 function backToGame() {
     inventoryOverlay.style.display = "none";
     solutionBoard.style.display = "none";
+    solutionBoard2.style.display = "none";
+    solutionBoard3.style.display = "none";
     backClick.play();
 }
 

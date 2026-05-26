@@ -464,7 +464,7 @@ input[type="checkbox"] {
     }
 }
 
-#solutionBoard {
+#solutionBoard, #solutionBoard2, #solutionBoard3 {
     position: fixed;
     top: 0;
     left: 0;
@@ -474,6 +474,19 @@ input[type="checkbox"] {
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+#solutionSentence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: #00e5ff;
+    font-size: 28px;
+    font-family: 'Audiowide', sans-serif;
+    font-style: italic;
+    padding: 20px;
 }
 
 #solutionUI {
