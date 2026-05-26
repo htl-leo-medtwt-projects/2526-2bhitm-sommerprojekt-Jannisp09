@@ -391,6 +391,65 @@ input[type="checkbox"] {
     font-size: 35px;
 }
 
+#solutionCircleTwo1 {
+    position: absolute;
+    display: flex;
+    top: 44%;
+    left: 31%;
+    width: 50px;
+    height: 50px;
+    background-color: #1591E9;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1591e9c3;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Audiowide', bold;
+    font-size: 35px;
+}
+
+#solutionCircleTwo2 {
+    position: absolute;
+    display: flex;
+    top: 44%;
+    left: 63%;
+    width: 50px;
+    height: 50px;
+    background-color: #1591E9;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1591e9c3;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Audiowide', bold;
+    font-size: 35px;
+}
+
+#solutionCircleTwoS {
+    position: absolute;
+    display: flex;
+    top: 44%;
+    left: 81.5%;
+    width: 50px;
+    height: 50px;
+    background-color: #E15F53;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #e15f53c9;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Audiowide', bold;
+    font-size: 35px;
+}
+
+#key {
+    position: absolute;
+    top: 40%;
+    left: 47%;
+    width: 60px;
+    height: auto;
+}
+
 @keyframes show {
     0% {
         background-color: #00e5ff89;
