@@ -313,9 +313,15 @@ let GAME_CONFIG = {
 
 // Level 1 Solution
 let solution_level1 = [1, 2, 0];
+let solution_level2 = ['G', 'G', 'G', 'G', 'R'];
 let solution1_input_1 = document.getElementById("solution1_input_1");
 let solution1_input_2 = document.getElementById("solution1_input_2");
 let solution1_input_3 = document.getElementById("solution1_input_3");
+let solution2_input_1 = document.getElementById("solution2_input_1");
+let solution2_input_2 = document.getElementById("solution2_input_2");
+let solution2_input_3 = document.getElementById("solution2_input_3");
+let solution2_input_4 = document.getElementById("solution2_input_4");
+let solution2_input_5 = document.getElementById("solution2_input_5");
 let solution_acceptBtn = document.getElementById("solution_acceptBtn");
 let solutionUI = document.getElementById("solutionUI");
 let hpBarInner = document.getElementById("hpBarInner");
@@ -408,6 +414,46 @@ function checkSolution1() {
             solution1_input_3.style.boxShadow = "0 0 10px #00e5ff";
 
         }, 3000);
+    }
+}
+
+function checkSolution2() {
+    if (solution2_input_1.value == solution_level2[0] && solution2_input_2.value == solution_level2[1] && solution2_input_3.value == solution_level2[2] && solution2_input_4.value == solution_level2[3] && solution2_input_5.value == solution_level2[4]) {
+        solutionUI.style.color = "green";
+        solutionUI.style.border = "2px solid green";
+        solution2_input_1.style.border = "2px solid green";
+        solution2_input_1.style.color = "green";
+        solution2_input_1.style.boxShadow = "0 0 10px green";
+        solution2_input_2.style.border = "2px solid green";
+        solution2_input_2.style.color = "green";
+        solution2_input_2.style.boxShadow = "0 0 10px green";
+        solution2_input_3.style.border = "2px solid green";
+        solution2_input_3.style.color = "green";
+        solution2_input_3.style.boxShadow = "0 0 10px green";
+        solution2_input_4.style.border = "2px solid green";
+        solution2_input_4.style.color = "green";
+        solution2_input_4.style.boxShadow = "0 0 10px green";
+        solution2_input_5.style.border = "2px solid green";
+        solution2_input_5.style.color = "green";
+        solution2_input_5.style.boxShadow = "0 0 10px green";
+    } else {
+        solutionUI.style.color = "red";
+        solutionUI.style.border = "2px solid red";
+        solution2_input_1.style.border = "2px solid red";
+        solution2_input_1.style.color = "red";
+        solution2_input_1.style.boxShadow = "0 0 10px red";
+        solution2_input_2.style.border = "2px solid red";
+        solution2_input_2.style.color = "red";
+        solution2_input_2.style.boxShadow = "0 0 10px red";
+        solution2_input_3.style.border = "2px solid red";
+        solution2_input_3.style.color = "red";
+        solution2_input_3.style.boxShadow = "0 0 10px red";
+        solution2_input_4.style.border = "2px solid red";
+        solution2_input_4.style.color = "red";
+        solution2_input_4.style.boxShadow = "0 0 10px red";
+        solution2_input_5.style.border = "2px solid red";
+        solution2_input_5.style.color = "red";
+        solution2_input_5.style.boxShadow = "0 0 10px red";
     }
 }
 
