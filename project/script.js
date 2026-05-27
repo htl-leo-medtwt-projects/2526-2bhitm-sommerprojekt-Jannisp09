@@ -211,7 +211,6 @@ function startMusic() {
 
 function loadSaveNames() {
     let saves = getAllSaves();
-
     saveSelect.innerHTML = '<option value="">Select Savegame</option>';
 
     Object.keys(saves).forEach(saveName => {
@@ -241,6 +240,7 @@ function backToGame() {
     solutionBoard.style.display = "none";
     solutionBoard2.style.display = "none";
     solutionBoard3.style.display = "none";
+    solutionBoardLvlTwo.style.display = "none";
     backClick.play();
 }
 
@@ -260,6 +260,7 @@ gsap.from("#solutionUI", {
     opacity: 0,
     duration: 0.5
 });
+
 
 let playerName = "";
 let dialogues;
