@@ -43,10 +43,7 @@ let solutionBoardLvlTwo = document.getElementById("solutionBoardLvlTwo");
 let solutionTriggered = false;
 
 function checkCollision() {
-    if (
-        solutionTriggered == false &&
-        isColliding(player, solutionCircle, -20)
-    ) {
+    if (solutionTriggered == false && isColliding(player, solutionCircle, -20)) {
 
         solutionTriggered = true;
         keyListenerUp({ key: "ArrowLeft" });
@@ -70,10 +67,7 @@ function checkCollision() {
         solutionTriggered = false;
     }
 
-    if (
-        solutionTriggered == false &&
-        isColliding(player, solutionCircleTwo1, -20)
-    ) {
+    if (solutionTriggered == false && isColliding(player, solutionCircleTwo1, -20)) {
         solutionTriggered = true;
         keyListenerUp({ key: "ArrowLeft" });
         keyListenerUp({ key: "ArrowUp" });
@@ -96,10 +90,7 @@ function checkCollision() {
         solutionTriggered = false;
     }
 
-    if (
-        solutionTriggered == false &&
-        isColliding(player, solutionCircleTwo2, -20)
-    ) {
+    if (solutionTriggered == false && isColliding(player, solutionCircleTwo2, -20)) {
 
         solutionTriggered = true;
 
@@ -121,16 +112,10 @@ function checkCollision() {
             duration: 0.5,
             ease: "power2.out"
         });
-
         solutionTriggered = false;
     }
-    if (
-        solutionTriggered == false &&
-        isColliding(player, solutionCircleTwoS, -20)
-    ) {
-
+    if (solutionTriggered == false && isColliding(player, solutionCircleTwoS, -20)) {
         solutionTriggered = true;
-
         keyListenerUp({ key: "ArrowLeft" });
         keyListenerUp({ key: "ArrowUp" });
         keyListenerUp({ key: "ArrowRight" });
@@ -158,4 +143,22 @@ function onSolutionFound() {
     solutionBoard.style.display = "grid";
     solutionTriggered = false;
     playDialog(dialoge.level1.dialog2);
+}
+
+let key = document.getElementById("key");
+let keyCollected = false;
+
+function detectKeyCollision() {
+
+    if (keyCollected) {
+        return;
+    }
+    let playerRect = PLAYER.box.getBoundingClientRect();
+    let keyRect = key.getBoundingClientRect();
+
+    if (playerRect.left < keyRect.right && playerRect.right > keyRect.left && playerRect.top < keyRect.bottom && playerRect.bottom > keyRect.top) {
+        keyCollected = true;
+        key.style.display = "none";
+        saveGame();
+    }
 }

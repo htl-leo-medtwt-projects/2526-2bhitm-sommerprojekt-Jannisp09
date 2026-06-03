@@ -21,17 +21,12 @@ function loadGame(playerName) {
     let saves = getAllSaves();
 
     if (saves[playerName]) {
-
         currentPlayerName = playerName;
-
         hp = saves[playerName].hp;
         inventory = saves[playerName].inventory;
-
         hpBarInner.style.width = hp + "%";
         hpText.innerHTML = hp + "HP";
-
         setLevel(saves[playerName].level);
-
         console.log("Spielstand geladen");
     }
     else {
@@ -58,6 +53,7 @@ let CURRENT_LEVEL = null;
 let CURRENT_LEVEL_NUMBER = 1;
 
 function hideAllLevels() {
+    // KI: Alle Level-Elemente ausblenden
     Object.values(LEVELS).forEach(level => {
         level.element.style.display = "none";
     });
@@ -288,7 +284,6 @@ function startGame() {
 
     if (saves[currentPlayerName]) {
         loadGame(currentPlayerName);
-
     } else {
         hp = 100;
         inventory = [];
@@ -437,6 +432,17 @@ function checkSolution2() {
         solution2_input_5.style.border = "2px solid green";
         solution2_input_5.style.color = "green";
         solution2_input_5.style.boxShadow = "0 0 10px green";
+
+        setTimeout(() => {
+            solutionBoard.style.display = "none";
+            solutionCircle.style.display = "none";
+            levelTransition.style.display = "block";
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            solutionBoardLvlTwo.style.display = "none";
+            transitionVideo.play();
+        }, 4000);
+
     } else {
         solutionUI.style.color = "red";
         solutionUI.style.border = "2px solid red";
@@ -463,6 +469,10 @@ function checkSolution2() {
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
 transitionVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
-    setLevel(2);
+    if (CURRENT_LEVEL_NUMBER === 1) {
+        setLevel(2);
+    } else if (CURRENT_LEVEL_NUMBER === 2) {
+        setLevel(3);
+    }
     saveGame();
 });
