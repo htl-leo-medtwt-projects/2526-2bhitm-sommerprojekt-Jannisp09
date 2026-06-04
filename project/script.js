@@ -46,6 +46,12 @@ let LEVELS = {
         element: document.getElementById("levelTwo"),
         spawnX: 100,
         spawnY: 100
+    },
+
+    3: {
+        element: document.getElementById("levelThree"),
+        spawnX: 100,
+        spawnY: 100
     }
 };
 
@@ -81,6 +87,7 @@ let inventoryOverlay = document.getElementById("inventoryOverlay");
 let levelTransition = document.getElementById("levelTransition");
 let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
+let level3 = document.getElementById("levelThree");
 let levelImportant = document.getElementById("levelImportant");
 let levelBoxLeft = document.getElementById("levelBoxLeft");
 
@@ -139,6 +146,8 @@ startScreen.style.display = "grid";
 settingScreen.style.display = "none";
 setupScreen.style.display = "none";
 level1.style.display = "none";
+level2.style.display = "none";
+level3.style.display = "none";
 inventoryOverlay.style.display = "none";
 levelTransition.style.display = "none";
 levelImportant.style.display = "none";
