@@ -50,8 +50,8 @@ let LEVELS = {
 
     3: {
         element: document.getElementById("levelThree"),
-        spawnX: 100,
-        spawnY: 100
+        spawnX: 602,
+        spawnY: 250       
     }
 };
 
@@ -117,6 +117,13 @@ let dialoge = {
         dialog1: {
             text: "Oh mein Gott! Wie soll man das lösen können?",
             speech: "./sound/dialoge/level2_1.mp3"
+        }
+    },
+
+    level3: {
+        dialog2: {
+            text: "Willkommen zu deinem Experiment! Du hast dich bisher ganz gut geschlagen! Nur zu weit! Wir brauchen dich doch noch für ein paar Jahre. Hoffentlich bringt dich dieses Rätsel zum scheitern! Hahaha!",
+            speech: "./sound/dialoge/woman1.mp3"
         }
     }
 };
@@ -473,7 +480,7 @@ function checkSolution2() {
     }
 }
 
-
+let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");
 // AI, wenn das Video zu Ende ist, soll es automatisch weitergehen
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
 transitionVideo.addEventListener("ended", () => {
@@ -482,6 +489,9 @@ transitionVideo.addEventListener("ended", () => {
         setLevel(2);
     } else if (CURRENT_LEVEL_NUMBER === 2) {
         setLevel(3);
-    }
+        playDialog(dialoge.level3.dialog2);
+        setTimeout(() => {
+            specialSolutionOverlay.style.display = "grid";
+        }, 5000)};
     saveGame();
 });
