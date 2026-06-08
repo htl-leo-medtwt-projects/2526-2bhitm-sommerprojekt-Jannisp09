@@ -376,15 +376,212 @@ hpBarInner.style.width = "100%";
 hpText.innerHTML = hp + "HP";
 
 
+function checkSolution1() {
+    if (solution1_input_1.value == solution_level1[0] && solution1_input_2.value == solution_level1[1] && solution1_input_3.value == solution_level1[2]) {
+        solutionUI.style.color = "green";
+        solutionUI.style.border = "2px solid green";
+        solution1_input_1.style.border = "2px solid green";
+        solution1_input_1.style.color = "green";
+        solution1_input_1.style.boxShadow = "0 0 10px green";
+        solution1_input_2.style.border = "2px solid green";
+        solution1_input_2.style.color = "green";
+        solution1_input_2.style.boxShadow = "0 0 10px green";
+        solution1_input_3.style.border = "2px solid green";
+        solution1_input_3.style.color = "green";
+        solution1_input_3.style.boxShadow = "0 0 10px green";
+        solution_acceptBtn.style.display = "none";
+        correct.play();
+        playDialog(dialoge.level1.dialog3);
+
+        setTimeout(() => {
+            solutionBoard.style.display = "none";
+            solutionCircle.style.display = "none";
+            levelTransition.style.display = "block";
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            transitionVideo.play();
+        }, 4000);
+
+    } else {
+        solutionUI.style.color = "red";
+        solutionUI.style.border = "2px solid red";
+        solution1_input_1.style.border = "2px solid red";
+        solution1_input_1.style.color = "red";
+        solution1_input_1.style.boxShadow = "0 0 10px red";
+        solution1_input_2.style.border = "2px solid red";
+        solution1_input_2.style.color = "red";
+        solution1_input_2.style.boxShadow = "0 0 10px red";
+        solution1_input_3.style.border = "2px solid red";
+        solution1_input_3.style.color = "red";
+        solution1_input_3.style.boxShadow = "0 0 10px red";
+        hpBarInner.style.width = (hp - 25) + "%";
+        hpText.innerHTML = (hp - 25) + "HP";
+        wrong.play();
+        hp -= 25;
+        saveGame();
+
+        function restartLevel1() {
+            hp = 100;
+            hpBarInner.style.width = "100%";
+            hpText.innerHTML = hp + "HP";
+            solution1_input_1.value = "";
+            solution1_input_2.value = "";
+            solution1_input_3.value = "";
+            solutionBoard.style.display = "none";
+            level1.style.display = "grid";
+            PLAYER.box.style.left = "60px";
+            PLAYER.box.style.top = "60px";
+            playDialog(dialoge.level1.dialog4);
+            saveGame();
+        }
+
+        if (hp <= 0) {
+            restartLevel1();
+        }
+
+
+        setTimeout(() => {
+            solutionUI.style.color = "#00e5ff";
+            solutionUI.style.border = "2px solid #00e5ff";
+            solution1_input_1.style.border = "2px solid #00e5ff";
+            solution1_input_1.style.color = "#00e5ff";
+            solution1_input_1.style.boxShadow = "0 0 10px #00e5ff";
+            solution1_input_2.style.border = "2px solid #00e5ff";
+            solution1_input_2.style.color = "#00e5ff";
+            solution1_input_2.style.boxShadow = "0 0 10px #00e5ff";
+            solution1_input_3.style.border = "2px solid #00e5ff";
+            solution1_input_3.style.color = "#00e5ff";
+            solution1_input_3.style.boxShadow = "0 0 10px #00e5ff";
+
+        }, 3000);
+    }
+}
+
+function checkSolution2() {
+    if (solution2_input_1.value == solution_level2[0] && solution2_input_2.value == solution_level2[1] && solution2_input_3.value == solution_level2[2] && solution2_input_4.value == solution_level2[3] && solution2_input_5.value == solution_level2[4]) {
+
+        solutionUI.style.color = "green";
+        solutionUI.style.border = "2px solid green";
+
+        solution2_input_1.style.border = "2px solid green";
+        solution2_input_1.style.color = "green";
+        solution2_input_1.style.boxShadow = "0 0 10px green";
+
+        solution2_input_2.style.border = "2px solid green";
+        solution2_input_2.style.color = "green";
+        solution2_input_2.style.boxShadow = "0 0 10px green";
+
+        solution2_input_3.style.border = "2px solid green";
+        solution2_input_3.style.color = "green";
+        solution2_input_3.style.boxShadow = "0 0 10px green";
+
+        solution2_input_4.style.border = "2px solid green";
+        solution2_input_4.style.color = "green";
+        solution2_input_4.style.boxShadow = "0 0 10px green";
+
+        solution2_input_5.style.border = "2px solid green";
+        solution2_input_5.style.color = "green";
+        solution2_input_5.style.boxShadow = "0 0 10px green";
+
+        correct.play();
+        saveGame();
+
+        setTimeout(() => {
+            solutionBoardLvlTwo.style.display = "none";
+            levelTransition.style.display = "block";
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            transitionVideo.play();
+        }, 4000);
+
+    } else {
+
+        solutionUI.style.color = "red";
+        solutionUI.style.border = "2px solid red";
+
+        solution2_input_1.style.border = "2px solid red";
+        solution2_input_1.style.color = "red";
+        solution2_input_1.style.boxShadow = "0 0 10px red";
+
+        solution2_input_2.style.border = "2px solid red";
+        solution2_input_2.style.color = "red";
+        solution2_input_2.style.boxShadow = "0 0 10px red";
+
+        solution2_input_3.style.border = "2px solid red";
+        solution2_input_3.style.color = "red";
+        solution2_input_3.style.boxShadow = "0 0 10px red";
+
+        solution2_input_4.style.border = "2px solid red";
+        solution2_input_4.style.color = "red";
+        solution2_input_4.style.boxShadow = "0 0 10px red";
+
+        solution2_input_5.style.border = "2px solid red";
+        solution2_input_5.style.color = "red";
+        solution2_input_5.style.boxShadow = "0 0 10px red";
+
+        hpBarInner.style.width = (hp - 25) + "%";
+        hpText.innerHTML = (hp - 25) + "HP";
+
+        wrong.play();
+        hp -= 25;
+
+        saveGame();
+
+        function restartLevel2() {
+            hp = 100;
+
+            hpBarInner.style.width = "100%";
+            hpText.innerHTML = hp + "HP";
+
+            solution2_input_1.value = "";
+            solution2_input_2.value = "";
+            solution2_input_3.value = "";
+            solution2_input_4.value = "";
+            solution2_input_5.value = "";
+
+            solutionBoardLvlTwo.style.display = "none";
+            level2.style.display = "grid";
+
+            PLAYER.box.style.left = "100px";
+            PLAYER.box.style.top = "100px";
+
+            saveGame();
+        }
+
+        if (hp <= 0) {
+            restartLevel2();
+        }
+
+        setTimeout(() => {
+            solutionUI.style.color = "#00e5ff";
+            solutionUI.style.border = "2px solid #00e5ff";
+
+            solution2_input_1.style.border = "2px solid #00e5ff";
+            solution2_input_1.style.color = "#00e5ff";
+            solution2_input_1.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution2_input_2.style.border = "2px solid #00e5ff";
+            solution2_input_2.style.color = "#00e5ff";
+            solution2_input_2.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution2_input_3.style.border = "2px solid #00e5ff";
+            solution2_input_3.style.color = "#00e5ff";
+            solution2_input_3.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution2_input_4.style.border = "2px solid #00e5ff";
+            solution2_input_4.style.color = "#00e5ff";
+            solution2_input_4.style.boxShadow = "0 0 10px #00e5ff";
+
+            solution2_input_5.style.border = "2px solid #00e5ff";
+            solution2_input_5.style.color = "#00e5ff";
+            solution2_input_5.style.boxShadow = "0 0 10px #00e5ff";
+
+        }, 3000);
+    }
+}
+
 function checkSolution3() {
-    if (
-        solution3_input_1.value == solution_level3[0] &&
-        solution3_input_2.value == solution_level3[1] &&
-        solution3_input_3.value == solution_level3[2] &&
-        solution3_input_4.value == solution_level3[3] &&
-        solution3_input_5.value == solution_level3[4] &&
-        solution3_input_6.value == solution_level3[5]
-    ) {
+    if (solution3_input_1.value == solution_level3[0] && solution3_input_2.value == solution_level3[1] && solution3_input_3.value == solution_level3[2] && solution3_input_4.value == solution_level3[3] && solution3_input_5.value == solution_level3[4] && solution3_input_6.value == solution_level3[5]) {
 
         solutionUI.style.color = "green";
         solutionUI.style.border = "2px solid green";
@@ -417,7 +614,13 @@ function checkSolution3() {
         saveGame();
 
         setTimeout(() => {
-            alert("Spiel abgeschlossen!");
+            solutionBoardLvlThree.style.display = "none";
+            specialSolutionOverlay.style.display = "none";
+            levelTransition.style.display = "block";
+
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            transitionVideo.play();
         }, 4000);
 
     } else {
