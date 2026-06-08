@@ -728,6 +728,8 @@ transitionVideo.addEventListener("ended", () => {
     } else if (CURRENT_LEVEL_NUMBER === 2) {
         setLevel(3);
         playDialog(dialoge.level3.dialog2);
+    } else if (CURRENT_LEVEL_NUMBER === 3) {
+        // TODO: Finale
     }
     saveGame();
 });
