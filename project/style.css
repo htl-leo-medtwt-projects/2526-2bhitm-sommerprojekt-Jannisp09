@@ -625,6 +625,7 @@ input[type="checkbox"] {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 10000;
@@ -634,6 +635,30 @@ input[type="checkbox"] {
     color: #00e5ff;
     font-size: 28px;
     font-family: 'Audiowide', sans-serif;
-    font-style: italic;
+    margin-bottom: 40px;
     text-align: center;
+}
+
+.choiceButtons {
+    display: flex;
+    gap: 40px;
+}
+
+.choiceBtn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    background: #00e5ff89;
+    color: white;
+    font-size: 32px;
+    font-family: 'Audiowide', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 12px #00e5ff;
+    transition: all 0.3s ease;
+}
+
+.choiceBtn:hover {
+    background: #00e5ff;
+    transform: scale(1.1);
 }

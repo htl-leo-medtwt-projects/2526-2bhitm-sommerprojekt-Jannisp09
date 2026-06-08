@@ -54,7 +54,7 @@
     <section id="setupScreen">
         <div id="setupUI">
             <img src="./img/figure.png" id="roboter">
-            
+
             <div id="inputRow">
                 <input type="text" id="nameInput" placeholder="GIB DEINEN NAMEN EIN...">
                 <select id="saveSelect" onchange="selectSavegame()">
@@ -143,11 +143,14 @@
     <section id="levelThree">
         <div id="specialSolutionOverlay">
             <p>Was möchtest du jetzt tun?</p>
-            <button onclick="option1()">?</button>
-            <button onclick="option2()">👀</button>
+
+            <div class="choiceButtons">
+                <button class="choiceBtn" onclick="option1()">?</button>
+                <button class="choiceBtn" onclick="option2()">👀</button>
+            </div>
         </div>
     </section>
-    
+
     <div id="levelImportant">
         <div id="hud">
             <div id="hpContainer">
