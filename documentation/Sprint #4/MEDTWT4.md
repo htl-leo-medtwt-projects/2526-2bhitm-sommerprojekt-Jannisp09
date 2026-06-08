@@ -14,7 +14,7 @@
 ## 🎯 Ziele für Sprint #5
 
 - Einsammelm
-- Level 3-6 (exkl. Finale und GameEnd)
+- Level 3 und Finale (und GameEnd)
 - Vollständiges Audio & Dialoge
 
 <br>

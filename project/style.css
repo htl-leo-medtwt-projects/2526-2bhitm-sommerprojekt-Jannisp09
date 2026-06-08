@@ -464,7 +464,7 @@ input[type="checkbox"] {
     }
 }
 
-#solutionBoard, #solutionBoard2, #solutionBoard3, #solutionBoardLvlTwo {
+#solutionBoard, #solutionBoard2, #solutionBoard3, #solutionBoardLvlTwo, #solutionBoardLvlThree {
     position: fixed;
     top: 0;
     left: 0;
@@ -661,4 +661,34 @@ input[type="checkbox"] {
 .choiceBtn:hover {
     background: #00e5ff;
     transform: scale(1.1);
+}
+
+#level3Puzzle {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.level3Row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Audiowide', sans-serif;
+    color: #00e5ff;
+}
+
+.level3Row span {
+    font-size: 18px;
+}
+
+.level3Row input {
+    width: 70px;
+    padding: 8px;
+    background: black;
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    text-align: center;
+    font-family: 'Audiowide', sans-serif;
 }

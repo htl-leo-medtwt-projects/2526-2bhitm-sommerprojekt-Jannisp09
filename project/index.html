@@ -145,33 +145,74 @@
             <p>Was möchtest du jetzt tun?</p>
 
             <div class="choiceButtons">
-                <button class="choiceBtn" onclick="option1()">?</button>
-                <button class="choiceBtn" onclick="option2()">👀</button>
+                <button class="choiceBtn" onclick="solutionThree()">?</button> <!-- TODO: Open Solution Board -->
+                <button class="choiceBtn" onclick="haveALook()">👀</button> <!-- Go Back To Level -->
             </div>
         </div>
     </section>
 
-    <div id="levelImportant">
-        <div id="hud">
-            <div id="hpContainer">
-                <div id="hpBarOuter">
-                    <div id="hpBarInner"></div>
+    <section id="solutionBoardLvlThree">
+        <div id="solutionUI">
+            <div id="backBtnSolution" onclick="backToLevelThreeChoice()">← Back</div>
+            <p id="solutionText">Gib hier deine Lösung ein!</p>
+            <div id="level3Puzzle">
+                <div class="level3Row">
+                    <span>A17</span>
+                    <input id="solution3_input_1">
                 </div>
-                <span id="hpText"></span>
+
+                <div class="level3Row">
+                    <span>B24</span>
+                    <input id="solution3_input_2">
+                </div>
+
+                <div class="level3Row">
+                    <span>C56</span>
+                    <input id="solution3_input_3">
+                </div>
+
+                <div class="level3Row">
+                    <span>D31</span>
+                    <input id="solution3_input_4">
+                </div>
+
+                <div class="level3Row">
+                    <span>E09</span>
+                    <input id="solution3_input_5">
+                </div>
+
+                <div class="level3Row">
+                    <span>F72</span>
+                    <input id="solution3_input_6">
+                </div>
             </div>
-            <div id="levelBoxLeft"></div>
+            <button onclick="checkSolution3()" id="solution_acceptBtn">
+                LÖSUNG PRÜFEN
+            </button>
         </div>
+    </section>
 
-        <div id="levelBoxRight" onclick="openInventory()">
-            <img src="./img/rucksack.png" id="rucksack">
-        </div>
-        <div id="subtitle"></div>
+        <div id="levelImportant">
+            <div id="hud">
+                <div id="hpContainer">
+                    <div id="hpBarOuter">
+                        <div id="hpBarInner"></div>
+                    </div>
+                    <span id="hpText"></span>
+                </div>
+                <div id="levelBoxLeft"></div>
+            </div>
 
-        <!-- Player -->
-        <div id="player">
-            <img id="spriteImg" src="./img/sprite-figure.png">
+            <div id="levelBoxRight" onclick="openInventory()">
+                <img src="./img/rucksack.png" id="rucksack">
+            </div>
+            <div id="subtitle"></div>
+
+            <!-- Player -->
+            <div id="player">
+                <img id="spriteImg" src="./img/sprite-figure.png">
+            </div>
         </div>
-    </div>
 
 </body>
 
