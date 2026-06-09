@@ -39,6 +39,8 @@ let solutionCircleTwo2 = document.getElementById("solutionCircleTwo2");
 let solutionBoard3 = document.getElementById("solutionBoard3");
 let solutionCircleTwoS = document.getElementById("solutionCircleTwoS");
 let solutionBoardLvlTwo = document.getElementById("solutionBoardLvlTwo");
+let collisionBoxLevel4 = document.getElementById("collisionBoxLevel4");
+let level4Triggered = false;
 
 let solutionTriggered = false;
 
@@ -160,5 +162,21 @@ function detectKeyCollision() {
         keyCollected = true;
         key.style.display = "none";
         saveGame();
+    }
+}
+
+function checkLevel4Collision() {
+    if (level4Triggered == false && isColliding(player, collisionBoxLevel4, -20)) {
+        level4Triggered = true;
+
+        keyListenerUp({ key: "ArrowLeft" });
+        keyListenerUp({ key: "ArrowUp" });
+        keyListenerUp({ key: "ArrowRight" });
+        keyListenerUp({ key: "ArrowDown" });
+        console.log("LEVEL 4 TRIGGER");
+
+        setTimeout(() => {
+            showBlackScreen();
+        }, 5000);
     }
 }

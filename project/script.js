@@ -52,6 +52,12 @@ let LEVELS = {
         element: document.getElementById("levelThree"),
         spawnX: 602,
         spawnY: 250       
+    },
+
+    4: {
+        element: document.getElementById("finalLevel"),
+        spawnX: 602,
+        spawnY: 250
     }
 };
 
@@ -718,6 +724,10 @@ function checkSolution3() {
     }
 }
 
+function showBlackScreen() {
+    document.getElementById("blackScreen").style.display = "block";
+}
+
 let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");
 // AI, wenn das Video zu Ende ist, soll es automatisch weitergehen
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
@@ -729,7 +739,7 @@ transitionVideo.addEventListener("ended", () => {
         setLevel(3);
         playDialog(dialoge.level3.dialog2);
     } else if (CURRENT_LEVEL_NUMBER === 3) {
-        // TODO: Finale
+        setLevel(4);
     }
     saveGame();
 });

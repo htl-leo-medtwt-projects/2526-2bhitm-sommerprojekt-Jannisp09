@@ -617,6 +617,16 @@ input[type="checkbox"] {
     margin: 0 auto;
 }
 
+#finalLevel {
+    background-image: url("./img/labor.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
 #specialSolutionOverlay {
     position: absolute;
     top: 0;
@@ -691,4 +701,25 @@ input[type="checkbox"] {
     color: #00e5ff;
     text-align: center;
     font-family: 'Audiowide', sans-serif;
+}
+
+#collisionBoxLevel4 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 2px solid limegreen;
+    left: 400px;
+    top: 250px;
+    pointer-events: none;
+}
+
+#blackScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 999999;
 }

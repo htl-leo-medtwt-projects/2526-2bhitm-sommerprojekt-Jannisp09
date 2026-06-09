@@ -14,24 +14,28 @@ function gameLoop() {
         animatePlayer();    
         checkCollision();
         detectKeyCollision();
+        checkLevel4Collision();
     }
     if (KEY_EVENTS.rightArrow) {
         movePlayer(GAME_CONFIG.characterSpeed, 0, 1);
         animatePlayer();
         checkCollision();
         detectKeyCollision();
+        checkLevel4Collision();
     }
     if (KEY_EVENTS.upArrow) {
         movePlayer(0, (-1) * GAME_CONFIG.characterSpeed, 0);
         animatePlayer();
         checkCollision();
         detectKeyCollision();
+        checkLevel4Collision();
     }
     if (KEY_EVENTS.downArrow) {
         movePlayer(0, GAME_CONFIG.characterSpeed, 0);
         animatePlayer();
         checkCollision();
         detectKeyCollision();
+        checkLevel4Collision();
     }
     setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed);
 }
