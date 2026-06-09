@@ -705,12 +705,12 @@ input[type="checkbox"] {
 
 #collisionBoxLevel4 {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 28%;
+    height: 16%;
     background: transparent;
-    border: 2px solid limegreen;
-    left: 400px;
-    top: 250px;
+    border: none;
+    left: 36%;
+    top: 83%;
     pointer-events: none;
 }
 

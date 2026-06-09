@@ -168,7 +168,6 @@ function detectKeyCollision() {
 function checkLevel4Collision() {
     if (level4Triggered == false && isColliding(player, collisionBoxLevel4, -20)) {
         level4Triggered = true;
-
         keyListenerUp({ key: "ArrowLeft" });
         keyListenerUp({ key: "ArrowUp" });
         keyListenerUp({ key: "ArrowRight" });
