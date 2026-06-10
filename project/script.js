@@ -29,12 +29,10 @@ function loadGame(playerName) {
         hpBarInner.style.width = hp + "%";
         hpText.innerHTML = hp + "HP";
         setLevel(saves[playerName].level);
-        console.log("Spielstand geladen");
         click.currentTime = 0;
         click.play();
     }
     else {
-        console.log("Kein Spielstand gefunden");
         wrong.currentTime = 0;
         wrong.play();
     }
@@ -158,6 +156,12 @@ let dialoge = {
         dialog2: {
             text: "Willkommen zu deinem Experiment! Du hast dich bisher ganz gut geschlagen! Nur zu weit! Wir brauchen dich doch noch für ein paar Jahre. Hoffentlich bringt dich dieses Rätsel zum scheitern! Hahaha!",
             speech: "./sound/dialoge/woman1.mp3"
+        }
+    },
+    final: {
+        dialog2: {
+            text: "Wo bin ich denn jetzt hingefallen? Gibt es hier einen Lichtschalter? (...) Achja hier.",
+            speech: "./sound/dialoge/final_fall.mp3"
         }
     }
 };
@@ -805,8 +809,21 @@ function showDeleteFeedback(playerName) {
     }, 4000);
 }
 
+function openSubroom() {
+    let subroom = document.getElementById("final_subroom");
+    subroom.style.display = "block";
+    subroom.style.zIndex = "100000";
+}
+
 function showBlackScreen() {
-    document.getElementById("blackScreen").style.display = "block";
+    let blackScreen = document.getElementById("blackScreen");
+    blackScreen.style.display = "block";
+    playDialog(dialoge.final.dialog2);
+
+    setTimeout(() => {
+        blackScreen.style.display = "none";
+        openSubroom();
+    }, 6000);
 }
 
 let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");

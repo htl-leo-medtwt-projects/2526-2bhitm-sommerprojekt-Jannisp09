@@ -769,3 +769,13 @@ input[type="checkbox"] {
     text-shadow: 0 0 10px red;
     opacity: 0;
 }
+
+#final_subroom {
+    background-image: url("./img/final_subroom.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}

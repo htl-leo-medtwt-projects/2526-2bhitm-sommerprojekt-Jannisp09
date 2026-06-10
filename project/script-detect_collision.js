@@ -173,9 +173,6 @@ function checkLevel4Collision() {
         keyListenerUp({ key: "ArrowRight" });
         keyListenerUp({ key: "ArrowDown" });
         console.log("LEVEL 4 TRIGGER");
-
-        setTimeout(() => {
-            showBlackScreen();
-        }, 5000);
+        showBlackScreen();
     }
 }
