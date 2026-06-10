@@ -77,6 +77,20 @@ function hideAllLevels() {
     });
 }
 
+function saveControlSettings() {
+
+    CONTROL_SETTINGS.arrowKeys =
+        document.getElementById("arrowKeysCheckbox").checked;
+
+    CONTROL_SETTINGS.wasd =
+        document.getElementById("wasdCheckbox").checked;
+
+    localStorage.setItem(
+        "controlSettings",
+        JSON.stringify(CONTROL_SETTINGS)
+    );
+}
+
 function setLevel(levelNumber) {
     hideAllLevels();
     CURRENT_LEVEL = LEVELS[levelNumber];
@@ -221,10 +235,18 @@ function settings() {
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
     levelImportant.style.display = "none";
+
+    document.getElementById("arrowKeysCheckbox").checked =
+        CONTROL_SETTINGS.arrowKeys;
+
+    document.getElementById("wasdCheckbox").checked =
+        CONTROL_SETTINGS.wasd;
+
     click.play();
 }
 
 function backToStart() {
+    saveControlSettings();
     startScreen.style.display = "grid";
     settingScreen.style.display = "none";
     setupScreen.style.display = "none";

@@ -39,8 +39,8 @@
             <div class="settingRow">
                 <div class="icon">🎮</div>
                 <div class="label">
-                    CONTROL WITH ARROWKEYS <input type="checkbox" checked><br>
-                    CONTROL WITH WASD <input type="checkbox">
+                    CONTROL WITH ARROWKEYS <input type="checkbox" id="arrowKeysCheckbox" checked><br>
+                    CONTROL WITH WASD <input type="checkbox" id="wasdCheckbox">
                 </div>
             </div>
 
@@ -50,6 +50,7 @@
             </div>
         </div>
     </section>
+    
 
     <section id="setupScreen">
         <div id="setupUI">
@@ -198,29 +199,29 @@
 
     <section id="final_subroom">
         <div id="blackScreen" style="display:none;"></div>
-</section>
+    </section>
 
-        <div id="levelImportant">
-            <div id="hud">
-                <div id="hpContainer">
-                    <div id="hpBarOuter">
-                        <div id="hpBarInner"></div>
-                    </div>
-                    <span id="hpText"></span>
+    <div id="levelImportant">
+        <div id="hud">
+            <div id="hpContainer">
+                <div id="hpBarOuter">
+                    <div id="hpBarInner"></div>
                 </div>
-                <div id="levelBoxLeft"></div>
+                <span id="hpText"></span>
             </div>
-
-            <div id="levelBoxRight" onclick="openInventory()">
-                <img src="./img/rucksack.png" id="rucksack">
-            </div>
-            <div id="subtitle"></div>
-
-            <!-- Player -->
-            <div id="player">
-                <img id="spriteImg" src="./img/sprite-figure.png">
-            </div>
+            <div id="levelBoxLeft"></div>
         </div>
+
+        <div id="levelBoxRight" onclick="openInventory()">
+            <img src="./img/rucksack.png" id="rucksack">
+        </div>
+        <div id="subtitle"></div>
+
+        <!-- Player -->
+        <div id="player">
+            <img id="spriteImg" src="./img/sprite-figure.png">
+        </div>
+    </div>
 
 </body>
 
