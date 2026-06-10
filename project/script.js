@@ -766,6 +766,45 @@ function checkSolution3() {
     }
 }
 
+function openDeleteMenu() {
+    let saves = getAllSaves();
+    let select = document.getElementById("deleteSaveSelect");
+    select.innerHTML =
+        '<option value="">Select Savegame</option>';
+    Object.keys(saves).forEach(saveName => {
+        select.innerHTML +=
+            `<option value="${saveName}">
+                ${saveName}
+            </option>`;
+    });
+    document.getElementById("deleteMenu").style.display = "block";
+    click.play();
+}
+
+function deleteSelectedSave() {
+    let selected = document.getElementById("deleteSaveSelect").value;
+
+    if (selected === ""){
+        return;
+    }
+    let saves = getAllSaves();
+    delete saves[selected];
+
+    localStorage.setItem("protocol_savegames", JSON.stringify(saves));
+    showDeleteFeedback(selected);
+    backClick.play();
+    openDeleteMenu();
+}
+
+function showDeleteFeedback(playerName) {
+    let feedback = document.getElementById("deleteFeedback");
+    feedback.innerHTML = playerName + " was deleted";
+    feedback.style.opacity = "1";
+    setTimeout(() => {
+        feedback.style.opacity = "0";
+    }, 4000);
+}
+
 function showBlackScreen() {
     document.getElementById("blackScreen").style.display = "block";
 }

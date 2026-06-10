@@ -46,11 +46,18 @@
 
             <div class="settingRow">
                 <div class="icon">🗂️</div>
-                <div class="label delete">DELETE PROGRESS</div>
+                <div class="label delete" onclick="openDeleteMenu()">
+                    DELETE PROGRESS
+                </div>
             </div>
+            <div id="deleteMenu">
+                <select id="deleteSaveSelect"></select>
+                <button id="deleteBtnConfirm" onclick="deleteSelectedSave()">DELETE</button>
+            </div>
+            <div id="deleteFeedback"></div>
         </div>
     </section>
-    
+
 
     <section id="setupScreen">
         <div id="setupUI">

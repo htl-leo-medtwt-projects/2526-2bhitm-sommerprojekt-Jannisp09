@@ -723,3 +723,49 @@ input[type="checkbox"] {
     background: black;
     z-index: 999999;
 }
+
+#deleteMenu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#deleteSaveSelect {
+    width: 324px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-shadow: 0 0 10px #00e5ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+#deleteBtnConfirm {
+    width: 324px;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid red;
+    color: red;
+    font-family: 'Audiowide', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 10px red;
+    transition: 0.3s;
+}
+
+#deleteBtnConfirm:hover {
+    background: red;
+    color: white;
+}
+
+#deleteFeedback {
+    margin-top: 15px;
+    color: red;
+    font-family: 'Audiowide', sans-serif;
+    text-shadow: 0 0 10px red;
+    opacity: 0;
+}
