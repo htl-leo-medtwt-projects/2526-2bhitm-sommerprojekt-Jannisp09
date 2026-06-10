@@ -15,6 +15,8 @@ function saveGame() {
         inventory: inventory
     };
     localStorage.setItem("protocol_savegames", JSON.stringify(saves));
+    click.currentTime = 0;
+    click.play();
 }
 
 function loadGame(playerName) {
@@ -28,9 +30,13 @@ function loadGame(playerName) {
         hpText.innerHTML = hp + "HP";
         setLevel(saves[playerName].level);
         console.log("Spielstand geladen");
+        click.currentTime = 0;
+        click.play();
     }
     else {
         console.log("Kein Spielstand gefunden");
+        wrong.currentTime = 0;
+        wrong.play();
     }
 }
 
@@ -80,6 +86,8 @@ function setLevel(levelNumber) {
     PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
     GAME_SCREEN.surface = CURRENT_LEVEL.element;
     levelBoxLeft.innerText = levelNumber;
+    correct.currentTime = 0;
+    correct.play();
 
     if (levelNumber === 3) {
         specialSolutionOverlay.style.display = "flex";
@@ -245,6 +253,8 @@ function loadSaveNames() {
 function selectSavegame() {
     if (saveSelect.value != "") {
         nameInput.value = saveSelect.value;
+        click.currentTime = 0;
+        click.play();
     }
 }
 
@@ -368,10 +378,14 @@ function backToLevelThreeChoice() {
 function solutionThree() {
     specialSolutionOverlay.style.display = "none";
     solutionBoardLvlThree.style.display = "flex";
+    click.currentTime = 0;
+    click.play();
 }
 
 function haveALook() {
     specialSolutionOverlay.style.display = "none";
+    backClick.currentTime = 0;
+    backClick.play();
 }
 
 let wrong = new Audio('./sound/wrong.mp3');
@@ -427,6 +441,8 @@ function checkSolution1() {
         saveGame();
 
         function restartLevel1() {
+            wrong.currentTime = 0;
+            wrong.play();
             hp = 100;
             hpBarInner.style.width = "100%";
             hpText.innerHTML = hp + "HP";
@@ -534,6 +550,8 @@ function checkSolution2() {
         saveGame();
 
         function restartLevel2() {
+            wrong.currentTime = 0;
+            wrong.play();
             hp = 100;
 
             hpBarInner.style.width = "100%";
@@ -667,6 +685,8 @@ function checkSolution3() {
         saveGame();
 
         function restartLevel3() {
+            wrong.currentTime = 0;
+            wrong.play();
             hp = 100;
 
             hpBarInner.style.width = "100%";
@@ -733,6 +753,8 @@ let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
 transitionVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
+    correct.currentTime = 0;
+    correct.play();
     if (CURRENT_LEVEL_NUMBER === 1) {
         setLevel(2);
     } else if (CURRENT_LEVEL_NUMBER === 2) {
