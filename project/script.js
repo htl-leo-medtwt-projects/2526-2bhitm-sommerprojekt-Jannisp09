@@ -76,17 +76,9 @@ function hideAllLevels() {
 }
 
 function saveControlSettings() {
-
-    CONTROL_SETTINGS.arrowKeys =
-        document.getElementById("arrowKeysCheckbox").checked;
-
-    CONTROL_SETTINGS.wasd =
-        document.getElementById("wasdCheckbox").checked;
-
-    localStorage.setItem(
-        "controlSettings",
-        JSON.stringify(CONTROL_SETTINGS)
-    );
+    CONTROL_SETTINGS.arrowKeys = document.getElementById("arrowKeysCheckbox").checked;
+    CONTROL_SETTINGS.wasd =document.getElementById("wasdCheckbox").checked;
+    localStorage.setItem("controlSettings", JSON.stringify(CONTROL_SETTINGS));
 }
 
 function setLevel(levelNumber) {
@@ -166,17 +158,17 @@ let dialoge = {
     }
 };
 
-function playDialog(d) {
-    const el = document.getElementById("subtitle");
-    el.innerText = d.text;
-    el.style.display = "block";
+function playDialog(something) {
+    let sub = document.getElementById("subtitle");
+    sub.innerText = something.text;
+    sub.style.display = "block";
 
-    let audio = new Audio(d.speech);
+    let audio = new Audio(something.speech);
     audio.play();
 
     // AI: Sobald der Dialog zu Ende ist, soll der Untertitel ausgeblendet werden
     audio.onended = function () {
-        el.style.display = "none";
+        sub.style.display = "none";
     };
 }
 
