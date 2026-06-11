@@ -55,13 +55,19 @@ let LEVELS = {
     3: {
         element: document.getElementById("levelThree"),
         spawnX: 602,
-        spawnY: 250       
+        spawnY: 250
     },
 
     4: {
         element: document.getElementById("finalLevel"),
         spawnX: 602,
         spawnY: 250
+    },
+
+    5: {
+        element: document.getElementById("final_subroom"),
+        spawnX: 200,
+        spawnY: 200
     }
 };
 
@@ -77,7 +83,7 @@ function hideAllLevels() {
 
 function saveControlSettings() {
     CONTROL_SETTINGS.arrowKeys = document.getElementById("arrowKeysCheckbox").checked;
-    CONTROL_SETTINGS.wasd =document.getElementById("wasdCheckbox").checked;
+    CONTROL_SETTINGS.wasd = document.getElementById("wasdCheckbox").checked;
     localStorage.setItem("controlSettings", JSON.stringify(CONTROL_SETTINGS));
 }
 
@@ -146,7 +152,7 @@ let dialoge = {
 
     level3: {
         dialog2: {
-            text: "Willkommen zu deinem Experiment! Du hast dich bisher ganz gut geschlagen! Nur zu weit! Wir brauchen dich doch noch für ein paar Jahre. Hoffentlich bringt dich dieses Rätsel zum scheitern! Hahaha!",
+            text: "Willkommen zu deinem Experiment! Hoffentlich bringt dich dieses Rätsel zum scheitern!",
             speech: "./sound/dialoge/woman1.mp3"
         }
     },
@@ -154,6 +160,11 @@ let dialoge = {
         dialog2: {
             text: "Wo bin ich denn jetzt hingefallen? Gibt es hier einen Lichtschalter? (...) Achja hier.",
             speech: "./sound/dialoge/final_fall.mp3"
+        },
+
+        dialog3: {
+            text: "Hmmm.... Hier gibt es ja einige Objekte..... Welches soll ich denn nur nehmen?",
+            speech: "./sound/dialoge/final_tip.mp3"
         }
     }
 };
@@ -780,7 +791,7 @@ function openDeleteMenu() {
 function deleteSelectedSave() {
     let selected = document.getElementById("deleteSaveSelect").value;
 
-    if (selected === ""){
+    if (selected === "") {
         return;
     }
     let saves = getAllSaves();
@@ -802,9 +813,9 @@ function showDeleteFeedback(playerName) {
 }
 
 function openSubroom() {
-    let subroom = document.getElementById("final_subroom");
-    subroom.style.display = "block";
-    subroom.style.zIndex = "100000";
+    setLevel(5);
+    playDialog(dialoge.final.dialog3);
+    document.getElementById("player").style.display = "none";
 }
 
 function showBlackScreen() {

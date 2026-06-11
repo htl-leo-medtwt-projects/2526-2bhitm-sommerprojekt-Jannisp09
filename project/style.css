@@ -779,3 +779,30 @@ input[type="checkbox"] {
     width: 100%;
     margin: 0 auto;
 }
+
+#arrow1, #arrow2 {
+    position: absolute;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 48px;
+    color: #00e5ff;
+    animation: bounce 2s infinite;
+}
+
+#arrow1 {
+    top: 34%;
+    left: 71%;
+}
+
+#arrow2 {
+    top: 18%;
+    left: 45%;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
