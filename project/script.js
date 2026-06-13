@@ -7,6 +7,23 @@ function getAllSaves() {
     return JSON.parse(localStorage.getItem("protocol_savegames")) || {};
 }
 
+function restartLevel1() {
+    wrong.currentTime = 0;
+    wrong.play();
+    hp = 100;
+    hpBarInner.style.width = "100%";
+    hpText.innerHTML = hp + "HP";
+    solution1_input_1.value = "";
+    solution1_input_2.value = "";
+    solution1_input_3.value = "";
+    solutionBoard.style.display = "none";
+    level1.style.display = "grid";
+    PLAYER.box.style.left = "60px";
+    PLAYER.box.style.top = "60px";
+    playDialog(dialoge.level1.dialog4);
+    saveGame();
+}
+
 function saveGame() {
     let saves = getAllSaves();
     saves[currentPlayerName] = {
@@ -104,6 +121,8 @@ let Inventory = {
         }]
 }
 
+let collected = 0;
+
 function updateInventory() {
     let foundSomething = false;
     document.getElementById("slotKey").style.display = "none";
@@ -141,9 +160,12 @@ function interactionNext() {
     if (interactionState === "start") {
         document.getElementById("interactionBox").style.display = "none";
         if (inventory.includes("KeyObject")) {
+            correct.play();
             let index = inventory.indexOf("KeyObject");
             inventory.splice(index, 1);
             inventory.push("SolutionPaper");
+            collected++;
+            checkCollected();
             updateInventory();
             saveGame();
             showTipPaper();
@@ -156,8 +178,8 @@ function interactionNext() {
 }
 
 function buyKey() {
-    if (hp < 25) {
-        return;
+    if (hp <= 0) {
+        restartLevel1();
     }
     hp -= 25;
     hpBarInner.style.width = hp + "%";
@@ -166,6 +188,8 @@ function buyKey() {
     saveGame();
     updateInventory();
     document.getElementById("buyBox").style.display = "none";
+    collected++;
+    checkCollected();
     correct.play();
     showKeyFound();
 }
@@ -198,6 +222,7 @@ function showKeyFound() {
     img.src = "./img/key.webp";
     text.innerText = "Du hast einen Schlüssel erhalten!";
     box.style.display = "flex";
+    correct.play();
 
     setTimeout(() => {
         box.style.display = "none";
@@ -599,23 +624,6 @@ function checkSolution1() {
         hp -= 25;
         saveGame();
 
-        function restartLevel1() {
-            wrong.currentTime = 0;
-            wrong.play();
-            hp = 100;
-            hpBarInner.style.width = "100%";
-            hpText.innerHTML = hp + "HP";
-            solution1_input_1.value = "";
-            solution1_input_2.value = "";
-            solution1_input_3.value = "";
-            solutionBoard.style.display = "none";
-            level1.style.display = "grid";
-            PLAYER.box.style.left = "60px";
-            PLAYER.box.style.top = "60px";
-            playDialog(dialoge.level1.dialog4);
-            saveGame();
-        }
-
         if (hp <= 0) {
             restartLevel1();
         }
@@ -708,31 +716,8 @@ function checkSolution2() {
 
         saveGame();
 
-        function restartLevel2() {
-            wrong.currentTime = 0;
-            wrong.play();
-            hp = 100;
-
-            hpBarInner.style.width = "100%";
-            hpText.innerHTML = hp + "HP";
-
-            solution2_input_1.value = "";
-            solution2_input_2.value = "";
-            solution2_input_3.value = "";
-            solution2_input_4.value = "";
-            solution2_input_5.value = "";
-
-            solutionBoardLvlTwo.style.display = "none";
-            level2.style.display = "grid";
-
-            PLAYER.box.style.left = "100px";
-            PLAYER.box.style.top = "100px";
-
-            saveGame();
-        }
-
         if (hp <= 0) {
-            restartLevel2();
+            restartLevel1();
         }
 
         setTimeout(() => {
@@ -843,32 +828,8 @@ function checkSolution3() {
 
         saveGame();
 
-        function restartLevel3() {
-            wrong.currentTime = 0;
-            wrong.play();
-            hp = 100;
-
-            hpBarInner.style.width = "100%";
-            hpText.innerHTML = hp + "HP";
-
-            solution3_input_1.value = "";
-            solution3_input_2.value = "";
-            solution3_input_3.value = "";
-            solution3_input_4.value = "";
-            solution3_input_5.value = "";
-            solution3_input_6.value = "";
-
-            solutionBoardLvlThree.style.display = "none";
-            specialSolutionOverlay.style.display = "flex";
-
-            PLAYER.box.style.left = "602px";
-            PLAYER.box.style.top = "250px";
-
-            saveGame();
-        }
-
         if (hp <= 0) {
-            restartLevel3();
+            restartLevel1();
         }
 
         setTimeout(() => {
@@ -964,6 +925,7 @@ function getEntranceCard() {
     correct.play();
     let box = document.getElementById("itemFoundBoxLevel4");
     box.style.display = "flex";
+    collected++;
     gsap.fromTo(box,
         {
             y: -150,
@@ -991,6 +953,16 @@ function getEntranceCard() {
     }, 4000);
     document.getElementById("objectColl2").style.display = "none";
     document.getElementById("arrow2").style.display = "none";
+}
+
+function checkCollected() {
+    if (collected >= 2) {
+        document.getElementById("blackScreen").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("blackScreen").style.display = "none";
+            setLevel(4);
+        }, 2000);
+    }
 }
 
 let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");
