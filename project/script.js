@@ -48,8 +48,8 @@ let LEVELS = {
 
     2: {
         element: document.getElementById("levelTwo"),
-        spawnX: 100,
-        spawnY: 100
+        spawnX: 170,
+        spawnY: 170
     },
 
     3: {

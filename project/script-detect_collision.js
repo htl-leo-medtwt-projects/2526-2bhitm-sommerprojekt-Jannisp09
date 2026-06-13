@@ -162,6 +162,32 @@ function detectKeyCollision() {
         key.style.display = "none";
         inventory.push("KeyObject");
         updateInventory();
+        correct.play();
+        let box = document.getElementById("itemFoundBox");
+        box.style.display = "flex";
+        gsap.fromTo(box,
+            {
+                y: -150,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power3.out"
+            }
+        );
+        setTimeout(() => {
+        gsap.to(box, {
+            y: -150,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.in",
+            onComplete: function () {
+                box.style.display = "none";
+            }
+        });
+    }, 4000);
     }
 }
 
