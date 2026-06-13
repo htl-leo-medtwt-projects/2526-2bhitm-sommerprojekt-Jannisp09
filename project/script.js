@@ -117,7 +117,7 @@ let Inventory = {
         },
         solutionPaper = {
             name: "SolutionPaper",
-            image: "./img/placeholder.png"
+            image: "./img/tipPaper.png"
         }]
 }
 
@@ -196,7 +196,7 @@ function showTipPaper() {
     let box = document.getElementById("itemFoundBoxLevel4");
     let img = document.getElementById("itemFoundImgLevel4");
     let text = document.getElementById("itemFoundTextLevel4");
-    img.src = "./img/placeholder.png";
+    img.src = "./img/tipPaper.png";
     text.innerText = "Du hast ein Hinweis-Papier gefunden!";
     box.style.display = "flex";
     collected++;
@@ -459,6 +459,10 @@ function backToGame() {
     solutionBoard2.style.display = "none";
     solutionBoard3.style.display = "none";
     solutionBoardLvlTwo.style.display = "none";
+    solutionBoardFinal.style.display = "none";
+    document.getElementById("solutionBoardFinal").style.display = "none";
+    document.getElementById("solutionUI").style.display = "none";
+    document.getElementById("accessCardBox").style.display = "none";
     backClick.play();
 }
 
@@ -962,7 +966,43 @@ function checkCollected() {
         setTimeout(() => {
             document.getElementById("blackScreen").style.display = "none";
             setLevel(4);
+            saveGame();
         }, 2000);
+    }
+}
+
+let accessState = "";
+let solutionBoardFinal = document.getElementById("solutionBoardFinal");
+
+function finalSolution() {
+    accessState = "check";
+    document.getElementById("solutionBoardFinal").style.display = "flex";
+    document.getElementById("accessCardBox").style.display = "flex";
+    document.getElementById("accessCardText").innerText =
+        "Wir brauchen eine Access Card von dir!";
+}
+
+function accessCardNext() {
+    if (accessState === "check") {
+        if (inventory.includes("AccessCard")) {
+            inventory.splice(inventory.indexOf("AccessCard"), 1);
+            document.getElementById("solutionBoardFinal").style.display = "flex";
+            document.getElementById("solutionUI").style.display = "flex";
+            document.getElementById("accessCardBox").style.display = "none";
+            click.currentTime = 0;
+            click.play();
+        } else {
+            document.getElementById("accessCardText").innerText = "ACCESS DENIED";
+            document.getElementById("solutionUI").style.display = "none";
+            document.getElementById("solutionBoardFinal").style.display = "none";
+            wrong.currentTime = 0;
+            wrong.play();
+            setTimeout(() => {
+                document.getElementById("accessCardBox").style.display = "none";
+                document.getElementById("solutionBoardFinal").style.display = "none";
+                document.getElementById("solutionUI").style.display = "none";
+            }, 2000);
+        }
     }
 }
 

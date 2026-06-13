@@ -474,7 +474,7 @@ input[type="checkbox"] {
     }
 }
 
-#solutionBoard, #solutionBoard2, #solutionBoard3, #solutionBoardLvlTwo, #solutionBoardLvlThree {
+#solutionBoard, #solutionBoard2, #solutionBoard3, #solutionBoardLvlTwo, #solutionBoardLvlThree, #solutionBoardFinal {
     position: fixed;
     top: 0;
     left: 0;
@@ -500,7 +500,7 @@ input[type="checkbox"] {
     padding: 20px;
 }
 
-#solutionUI {
+#solutionUI, #solutionUIFinal {
     background: rgba(0, 0, 0, 0.9);
     border: 2px solid #00e5ff;
     color: #00e5ff;
@@ -551,6 +551,32 @@ input[type="checkbox"] {
     margin-top: 5%;
     text-align: center;
     text-transform: uppercase;
+}
+
+#level4_solution_input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #00e5ff;
+    box-shadow: 0 0 12px #00e5ff;
+    border-radius: 8px;
+    width: 320px;
+}
+
+#solution4_input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 #solution1_input_1,
@@ -803,6 +829,16 @@ input[type="checkbox"] {
     left: 45%;
 }
 
+#arrow3 {
+    position: absolute;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 39px;
+    color: #c50000;
+    animation: bounce 2s infinite;
+    top: 5%;
+    left: 88%;
+}
+
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -828,6 +864,16 @@ input[type="checkbox"] {
     left: 42%;
     width: 7%;
     height: 7%;
+    border: none;
+    background-color: transparent;
+}
+
+#solutionBoxLevel4 {
+    position: absolute;
+    top: 17%;
+    left: 88%;
+    width: 2%;
+    height: 4%;
     border: none;
     background-color: transparent;
 }
@@ -926,4 +972,32 @@ input[type="checkbox"] {
 #buyBox button:hover {
     background: #00e5ff;
     color: black;
+}
+
+#accessCardBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 25px;
+    background: rgba(0,0,0,0.95);
+    border: 2px solid #00e5ff;
+    box-shadow: 0 0 15px #00e5ff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    z-index: 999999;
+}
+
+#accessCardBox button {
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Audiowide', sans-serif;
+    cursor: pointer;
 }

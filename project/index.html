@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="inventorySlot" id="slotSolutionPaper">
-                    <img src="./img/placeholder.png">
+                    <img src="./img/tipPaper.png">
                 </div>
             </div>
         </div>
@@ -171,8 +171,8 @@
             <p>Was möchtest du jetzt tun?</p>
 
             <div class="choiceButtons">
-                <button class="choiceBtn" onclick="solutionThree()">?</button> <!-- TODO: Open Solution Board -->
-                <button class="choiceBtn" onclick="haveALook()">👀</button> <!-- Go Back To Level -->
+                <button class="choiceBtn" onclick="solutionThree()">?</button>
+                <button class="choiceBtn" onclick="haveALook()">👀</button>
             </div>
         </div>
     </section>
@@ -220,6 +220,8 @@
 
     <section id="finalLevel">
         <div id="collisionBoxLevel4"></div>
+        <p id="arrow3">↓</p>
+        <div id="solutionBoxLevel4" onclick="finalSolution()"></div>
         <div id="blackScreen" style="display:none;"></div>
     </section>
 
@@ -244,6 +246,24 @@
             <p>Du kannst den Schlüssel für 25HP kaufen.</p>
             <button onclick="buyKey()">Kaufen</button>
             <button onclick="closeBuyBox()">Abbrechen</button>
+        </div>
+    </section>
+
+    <section id="solutionBoardFinal">
+        <div id="accessCardBox" style="display:none;">
+            <p id="accessCardText"></p>
+            <button onclick="accessCardNext()">Weiter</button>
+        </div>
+        <div id="solutionUIFinal">
+            <div id="backBtnSolution" onclick="backToGame()">← Back</div>
+            <p id="solutionText">Gib hier deine Lösung ein!</p>
+            <img src="./img/solution_level-one.png" id="solution1_img">
+            <div id="level4_solution_input">
+                <input id="solution4_input">
+            </div>
+            <button onclick="checkSolution4()" id="solution_acceptBtn">
+                LÖSUNG PRÜFEN
+            </button>
         </div>
     </section>
 
