@@ -816,3 +816,35 @@ input[type="checkbox"] {
     border: none;
     background-color: transparent;
 }
+
+#itemFoundBox {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00e5ff;
+    box-shadow: 0 0 15px #00e5ff;
+    display: none;
+    align-items: center;
+    z-index: 999999;
+    font-family: 'Audiowide', sans-serif;
+    color: #00e5ff;
+}
+
+#itemFoundImg {
+    width: 25%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#itemFoundText {
+    width: 75%;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+}

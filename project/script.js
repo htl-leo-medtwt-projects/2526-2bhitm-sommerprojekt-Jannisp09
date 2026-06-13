@@ -829,6 +829,21 @@ function showBlackScreen() {
     }, 6000);
 }
 
+function getEntranceCard() {
+    inventory.push("AccessCard");
+    correct.play();
+    let box = document.getElementById("itemFoundBox");
+    box.style.display = "flex";
+    click.currentTime = 0;
+    click.play();
+
+    setTimeout(() => {
+        box.style.display = "none";
+    }, 4000);
+    document.getElementById("objectColl2").style.display = "none";
+    document.getElementById("arrow2").style.display = "none";
+}
+
 let specialSolutionOverlay = document.getElementById("specialSolutionOverlay");
 // AI, wenn das Video zu Ende ist, soll es automatisch weitergehen
 // Es funktioniert so, dass ein EventListener auf das "ended" Event des Videos hört. Sobald das Video zu Ende ist, wird die Funktion ausgeführt, die den Level-Transition-Bildschirm ausblendet, das erste Level ausblendet und das zweite Level anzeigt. Dadurch wird der Übergang zwischen den Levels nahtlos gestaltet, ohne dass der Spieler manuell eingreifen muss.
