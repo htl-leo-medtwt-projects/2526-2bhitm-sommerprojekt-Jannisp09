@@ -188,10 +188,8 @@ function buyKey() {
     saveGame();
     updateInventory();
     document.getElementById("buyBox").style.display = "none";
-    collected++;
-    checkCollected();
-    correct.play();
     showKeyFound();
+    document.getElementById("collisionBoxLevel4").style.display = "none";
 }
 
 function showTipPaper() {
@@ -201,6 +199,9 @@ function showTipPaper() {
     img.src = "./img/placeholder.png";
     text.innerText = "Du hast ein Hinweis-Papier gefunden!";
     box.style.display = "flex";
+    collected++;
+    correct.play();
+    checkCollected();
     gsap.fromTo(box,
         { y: -150, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6 }
