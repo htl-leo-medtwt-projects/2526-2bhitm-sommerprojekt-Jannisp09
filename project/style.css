@@ -848,3 +848,26 @@ input[type="checkbox"] {
     font-size: 18px;
     padding: 15px;
 }
+
+#inventoryItems {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.inventorySlot {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #ff5005;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #ff5005;
+}
+
+.inventorySlot img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+}

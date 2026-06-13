@@ -87,6 +87,48 @@ function saveControlSettings() {
     localStorage.setItem("controlSettings", JSON.stringify(CONTROL_SETTINGS));
 }
 
+
+let Inventory = {
+    items: [
+        keyObject = {
+            name: "Key",
+            image: "./img/key.webp"
+        },
+        accessCard = {
+            name: "AccessCard",
+            image: "./img/accessCard.png"
+        },
+        solutionPaper = {
+            name: "SolutionPaper",
+            image: "./img/placeholder.png"
+        }]
+}
+
+function updateInventory() {
+    let foundSomething = false;
+    document.getElementById("slotKey").style.display = "none";
+    document.getElementById("slotAccessCard").style.display = "none";
+    document.getElementById("slotSolutionPaper").style.display = "none";
+
+    if (inventory.includes("KeyObject")) {
+        document.getElementById("slotKey").style.display = "flex";
+        foundSomething = true;
+    }
+
+    if (inventory.includes("AccessCard")) {
+        document.getElementById("slotAccessCard").style.display = "flex";
+        foundSomething = true;
+    }
+
+    if (inventory.includes("SolutionPaper")) {
+        document.getElementById("slotSolutionPaper").style.display = "flex";
+        foundSomething = true;
+    }
+
+    document.getElementById("nothingFound").style.display =
+        foundSomething ? "none" : "block";
+}
+
 function setLevel(levelNumber) {
     hideAllLevels();
     CURRENT_LEVEL = LEVELS[levelNumber];
@@ -310,6 +352,7 @@ function backToGame() {
 function openInventory() {
     inventoryOverlay.style.display = "grid";
     click.play();
+    updateInventory();
 
     gsap.from("#inventoryUI", {
         scale: 0.9,
@@ -834,11 +877,30 @@ function getEntranceCard() {
     correct.play();
     let box = document.getElementById("itemFoundBox");
     box.style.display = "flex";
+    gsap.fromTo(box,
+        {
+            y: -150,
+            opacity: 0
+        },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out"
+        }
+    );
     click.currentTime = 0;
     click.play();
-
     setTimeout(() => {
-        box.style.display = "none";
+        gsap.to(box, {
+            y: -150,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.in",
+            onComplete: function () {
+                box.style.display = "none";
+            }
+        });
     }, 4000);
     document.getElementById("objectColl2").style.display = "none";
     document.getElementById("arrow2").style.display = "none";

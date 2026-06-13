@@ -151,7 +151,6 @@ let key = document.getElementById("key");
 let keyCollected = false;
 
 function detectKeyCollision() {
-
     if (keyCollected) {
         return;
     }
@@ -161,7 +160,8 @@ function detectKeyCollision() {
     if (playerRect.left < keyRect.right && playerRect.right > keyRect.left && playerRect.top < keyRect.bottom && playerRect.bottom > keyRect.top) {
         keyCollected = true;
         key.style.display = "none";
-        saveGame();
+        inventory.push("KeyObject");
+        updateInventory();
     }
 }
 
