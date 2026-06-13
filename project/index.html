@@ -229,11 +229,21 @@
         <div id="objectColl1" onclick="openKeyAsker()"></div>
         <div id="objectColl2" onclick="getEntranceCard()"></div>
 
-        <div id="itemFoundBox">
-            <img src="./img/accessCard.png" id="itemFoundImg">
-            <div id="itemFoundText">
+        <div id="itemFoundBoxLevel4">
+            <img src="./img/accessCard.png" id="itemFoundImgLevel4">
+            <div id="itemFoundTextLevel4">
                 Du hast gerade eine AccessCard eingesammelt!
             </div>
+        </div>
+        <div id="interactionBox" style="display:none;">
+            <p id="interactionText"></p>
+            <button onclick="interactionNext()">Weiter</button>
+        </div>
+
+        <div id="buyBox" style="display:none;">
+            <p>Du kannst den Schlüssel für 25HP kaufen.</p>
+            <button onclick="buyKey()">Kaufen</button>
+            <button onclick="closeBuyBox()">Abbrechen</button>
         </div>
     </section>
 

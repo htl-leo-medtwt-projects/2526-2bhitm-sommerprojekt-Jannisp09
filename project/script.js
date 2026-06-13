@@ -129,6 +129,87 @@ function updateInventory() {
         foundSomething ? "none" : "block";
 }
 
+let interactionState = "";
+
+function openKeyAsker() {
+    interactionState = "start";
+    document.getElementById("interactionBox").style.display = "flex";
+    document.getElementById("interactionText").innerText = "Du brauchst für diese Box einen Schlüssel.";
+}
+
+function interactionNext() {
+    if (interactionState === "start") {
+        document.getElementById("interactionBox").style.display = "none";
+        if (inventory.includes("KeyObject")) {
+            let index = inventory.indexOf("KeyObject");
+            inventory.splice(index, 1);
+            inventory.push("SolutionPaper");
+            updateInventory();
+            saveGame();
+            showTipPaper();
+            document.getElementById("objectColl1").style.display = "none";
+            document.getElementById("arrow1").style.display = "none";
+        } else {
+            document.getElementById("buyBox").style.display = "flex";
+        }
+    }
+}
+
+function buyKey() {
+    if (hp < 25) {
+        return;
+    }
+    hp -= 25;
+    hpBarInner.style.width = hp + "%";
+    hpText.innerHTML = hp + "HP";
+    inventory.push("KeyObject");
+    saveGame();
+    updateInventory();
+    document.getElementById("buyBox").style.display = "none";
+    correct.play();
+    showKeyFound();
+}
+
+function showTipPaper() {
+    let box = document.getElementById("itemFoundBoxLevel4");
+    let img = document.getElementById("itemFoundImgLevel4");
+    let text = document.getElementById("itemFoundTextLevel4");
+    img.src = "./img/placeholder.png";
+    text.innerText = "Du hast ein Hinweis-Papier gefunden!";
+    box.style.display = "flex";
+    gsap.fromTo(box,
+        { y: -150, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 }
+    );
+    setTimeout(() => {
+        gsap.to(box, {
+            y: -150,
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => box.style.display = "none"
+        });
+    }, 3000);
+}
+
+function showKeyFound() {
+    let box = document.getElementById("itemFoundBoxLevel4");
+    let img = document.getElementById("itemFoundImgLevel4");
+    let text = document.getElementById("itemFoundTextLevel4");
+    img.src = "./img/key.webp";
+    text.innerText = "Du hast einen Schlüssel erhalten!";
+    box.style.display = "flex";
+
+    setTimeout(() => {
+        box.style.display = "none";
+    }, 3000);
+}
+
+function closeBuyBox() {
+    document.getElementById("buyBox").style.display = "none";
+    document.getElementById("objectColl1").style.display = "none";
+    document.getElementById("arrow1").style.display = "none";
+}
+
 function setLevel(levelNumber) {
     hideAllLevels();
     CURRENT_LEVEL = LEVELS[levelNumber];
@@ -145,6 +226,12 @@ function setLevel(levelNumber) {
         specialSolutionOverlay.style.display = "flex";
     } else {
         specialSolutionOverlay.style.display = "none";
+    }
+
+    if (levelNumber === 5) {
+        player.style.display = "none";
+    } else {
+        player.style.display = "block";
     }
 }
 
@@ -875,7 +962,7 @@ function showBlackScreen() {
 function getEntranceCard() {
     inventory.push("AccessCard");
     correct.play();
-    let box = document.getElementById("itemFoundBox");
+    let box = document.getElementById("itemFoundBoxLevel4");
     box.style.display = "flex";
     gsap.fromTo(box,
         {
