@@ -265,7 +265,7 @@ function backToStart() {
 
 function startMusic() {
     audio.play();
-    audio.volume = 0.5;
+    audio.volume = 0.1;
     musicIcon.innerHTML = "❚❚";
     musicText.innerHTML = "MUSIC ON";
 }
