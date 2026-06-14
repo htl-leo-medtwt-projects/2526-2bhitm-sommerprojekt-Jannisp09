@@ -162,7 +162,6 @@ function interactionNext() {
         if (inventory.includes("KeyObject")) {
             correct.play();
             let index = inventory.indexOf("KeyObject");
-            inventory.splice(index, 1);
             inventory.push("SolutionPaper");
             collected++;
             checkCollected();
@@ -699,7 +698,7 @@ function checkSolution1() {
 }
 
 function checkSolution2() {
-    if (solution2_input_1.value == solution_level2[0] && solution2_input_2.value == solution_level2[1] && solution2_input_3.value == solution_level2[2] && solution2_input_4.value == solution_level2[3] && solution2_input_5.value == solution_level2[4]) {
+    if (solution2_input_1.value.toUpperCase() == solution_level2[0] && solution2_input_2.value.toUpperCase() == solution_level2[1] && solution2_input_3.value.toUpperCase() == solution_level2[2] && solution2_input_4.value.toUpperCase() == solution_level2[3] && solution2_input_5.value.toUpperCase() == solution_level2[4]) {
         solutionUILevel2.style.color = "green";
         solutionUILevel2.style.border = "2px solid green";
         solution2_input_1.style.border = "2px solid green";
@@ -1042,7 +1041,6 @@ function finalSolution() {
 function accessCardNext() {
     if (accessState === "check") {
         if (inventory.includes("AccessCard")) {
-            inventory.splice(inventory.indexOf("AccessCard"), 1);
             document.getElementById("solutionBoardFinal").style.display = "flex";
             document.getElementById("solutionUIFinal").style.display = "flex";
             document.getElementById("accessCardBox").style.display = "none";
@@ -1097,4 +1095,5 @@ endVideo.addEventListener("ended", () => {
     levelTransition.style.display = "none";
     endTransition.style.display = "none";
     levelImportant.style.display = "none";
+    saveGame();
 });
