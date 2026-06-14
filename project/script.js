@@ -883,6 +883,7 @@ function checkSolution4() {
         correct.play();
 
         setTimeout(() => {
+            document.getElementById("solutionBoardFinal").style.display = "none";
             levelTransition.style.display = "block";
             transitionVideo.currentTime = 0;
             transitionVideo.muted = false;

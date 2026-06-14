@@ -39,6 +39,7 @@ let solutionCircleTwo2 = document.getElementById("solutionCircleTwo2");
 let solutionBoard3 = document.getElementById("solutionBoard3");
 let solutionCircleTwoS = document.getElementById("solutionCircleTwoS");
 let solutionBoardLvlTwo = document.getElementById("solutionBoardLvlTwo");
+let solutionCircleThree = document.getElementById("solutionCircleThree");
 let collisionBoxLevel4 = document.getElementById("collisionBoxLevel4");
 let level4Triggered = false;
 
@@ -137,6 +138,17 @@ function checkCollision() {
             ease: "power2.out"
         });
 
+        solutionTriggered = false;
+    }
+
+    if (solutionTriggered == false && isColliding(player, solutionCircleThree, -20)) {
+        solutionTriggered = true;
+        keyListenerUp({ key: "ArrowLeft" });
+        keyListenerUp({ key: "ArrowUp" });
+        keyListenerUp({ key: "ArrowRight" });
+        keyListenerUp({ key: "ArrowDown" });
+
+        specialSolutionOverlay.style.display = "flex";
         solutionTriggered = false;
     }
 }
