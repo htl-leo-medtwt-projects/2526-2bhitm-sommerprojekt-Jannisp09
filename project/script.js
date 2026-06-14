@@ -536,6 +536,7 @@ let GAME_CONFIG = {
 let solution_level1 = [1, 2, 0];
 let solution_level2 = ['G', 'G', 'G', 'G', 'R'];
 let solution_level3 = [0, 2, 3, 1, 0, 4];
+let solution_level4 = [106]
 let solution1_input_1 = document.getElementById("solution1_input_1");
 let solution1_input_2 = document.getElementById("solution1_input_2");
 let solution1_input_3 = document.getElementById("solution1_input_3");
@@ -550,6 +551,7 @@ let solution3_input_3 = document.getElementById("solution3_input_3");
 let solution3_input_4 = document.getElementById("solution3_input_4");
 let solution3_input_5 = document.getElementById("solution3_input_5");
 let solution3_input_6 = document.getElementById("solution3_input_6");
+let solution4_input = document.getElementById("solution4_input");
 let solution_acceptBtn = document.getElementById("solution_acceptBtn");
 let solutionUI = document.getElementById("solutionUI");
 let hpBarInner = document.getElementById("hpBarInner");
@@ -865,6 +867,49 @@ function checkSolution3() {
             solution3_input_6.style.color = "#00e5ff";
             solution3_input_6.style.boxShadow = "0 0 10px #00e5ff";
 
+        }, 3000);
+    }
+}
+
+function checkSolution4() {
+    if (solution4_input.value == solution_level4) {
+        solutionUI.style.color = "green";
+        solutionUI.style.border = "2px solid green";
+        solution4_input.style.border = "2px solid green";
+        solution4_input.style.color = "green";
+        solution4_input.style.boxShadow = "0 0 10px green";
+        solution4_input.style.border = "2px solid green";
+        solution_acceptBtn.style.display = "none";
+        correct.play();
+
+        setTimeout(() => {
+            levelTransition.style.display = "block";
+            transitionVideo.currentTime = 0;
+            transitionVideo.muted = false;
+            transitionVideo.play();
+        }, 4000);
+    } else {
+        solutionUI.style.color = "red";
+        solutionUI.style.border = "2px solid red";
+        solution4_input.style.border = "2px solid red";
+        solution4_input.style.color = "red";
+        solution4_input.style.boxShadow = "0 0 10px red";
+        hpBarInner.style.width = (hp - 25) + "%";
+        hpText.innerHTML = (hp - 25) + "HP";
+        wrong.play();
+        hp -= 25;
+        saveGame();
+
+        if (hp <= 0) {
+            restartLevel1();
+        }
+
+        setTimeout(() => {
+            solutionUI.style.color = "#00e5ff";
+            solutionUI.style.border = "2px solid #00e5ff";
+            solution4_input.style.border = "2px solid #00e5ff";
+            solution4_input.style.color = "#00e5ff";
+            solution4_input.style.boxShadow = "0 0 10px #00e5ff";
         }, 3000);
     }
 }
