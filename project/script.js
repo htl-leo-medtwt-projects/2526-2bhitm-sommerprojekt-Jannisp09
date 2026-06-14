@@ -536,7 +536,7 @@ let GAME_CONFIG = {
 let solution_level1 = [1, 2, 0];
 let solution_level2 = ['G', 'G', 'G', 'G', 'R'];
 let solution_level3 = [0, 2, 3, 1, 0, 4];
-let solution_level4 = [106]
+let solution_level4 = 106;
 let solution1_input_1 = document.getElementById("solution1_input_1");
 let solution1_input_2 = document.getElementById("solution1_input_2");
 let solution1_input_3 = document.getElementById("solution1_input_3");
@@ -552,8 +552,14 @@ let solution3_input_4 = document.getElementById("solution3_input_4");
 let solution3_input_5 = document.getElementById("solution3_input_5");
 let solution3_input_6 = document.getElementById("solution3_input_6");
 let solution4_input = document.getElementById("solution4_input");
-let solution_acceptBtn = document.getElementById("solution_acceptBtn");
-let solutionUI = document.getElementById("solutionUI");
+let solutionUILevel1 = document.getElementById("solutionUILevel1");
+let solutionUILevel2 = document.getElementById("solutionUILevel2");
+let solutionUIThree = document.getElementById("solutionUIThree");
+let solutionUIFinal = document.getElementById("solutionUIFinal");
+let solution_acceptBtn1 = document.getElementById("solution_acceptBtn1");
+let solution_acceptBtn2 = document.getElementById("solution_acceptBtn2");
+let solution_acceptBtn3 = document.getElementById("solution_acceptBtn3");
+let solution_acceptBtn4 = document.getElementById("solution_acceptBtn4");
 let hpBarInner = document.getElementById("hpBarInner");
 let hpText = document.getElementById("hpText");
 let transitionVideo = document.getElementById("transitionVideo");
@@ -589,8 +595,8 @@ hpText.innerHTML = hp + "HP";
 
 function checkSolution1() {
     if (solution1_input_1.value == solution_level1[0] && solution1_input_2.value == solution_level1[1] && solution1_input_3.value == solution_level1[2]) {
-        solutionUI.style.color = "green";
-        solutionUI.style.border = "2px solid green";
+        solutionUILevel1.style.color = "green";
+        solutionUILevel1.style.border = "2px solid green";
         solution1_input_1.style.border = "2px solid green";
         solution1_input_1.style.color = "green";
         solution1_input_1.style.boxShadow = "0 0 10px green";
@@ -600,7 +606,7 @@ function checkSolution1() {
         solution1_input_3.style.border = "2px solid green";
         solution1_input_3.style.color = "green";
         solution1_input_3.style.boxShadow = "0 0 10px green";
-        solution_acceptBtn.style.display = "none";
+        solution_acceptBtn1.style.display = "none";
         correct.play();
         playDialog(dialoge.level1.dialog3);
 
@@ -614,8 +620,8 @@ function checkSolution1() {
         }, 4000);
 
     } else {
-        solutionUI.style.color = "red";
-        solutionUI.style.border = "2px solid red";
+        solutionUILevel1.style.color = "red";
+        solutionUILevel1.style.border = "2px solid red";
         solution1_input_1.style.border = "2px solid red";
         solution1_input_1.style.color = "red";
         solution1_input_1.style.boxShadow = "0 0 10px red";
@@ -637,8 +643,8 @@ function checkSolution1() {
 
 
         setTimeout(() => {
-            solutionUI.style.color = "#00e5ff";
-            solutionUI.style.border = "2px solid #00e5ff";
+            solutionUILevel1.style.color = "#00e5ff";
+            solutionUILevel1.style.border = "2px solid #00e5ff";
             solution1_input_1.style.border = "2px solid #00e5ff";
             solution1_input_1.style.color = "#00e5ff";
             solution1_input_1.style.boxShadow = "0 0 10px #00e5ff";
@@ -655,30 +661,24 @@ function checkSolution1() {
 
 function checkSolution2() {
     if (solution2_input_1.value == solution_level2[0] && solution2_input_2.value == solution_level2[1] && solution2_input_3.value == solution_level2[2] && solution2_input_4.value == solution_level2[3] && solution2_input_5.value == solution_level2[4]) {
-
-        solutionUI.style.color = "green";
-        solutionUI.style.border = "2px solid green";
-
+        solutionUILevel2.style.color = "green";
+        solutionUILevel2.style.border = "2px solid green";
         solution2_input_1.style.border = "2px solid green";
         solution2_input_1.style.color = "green";
         solution2_input_1.style.boxShadow = "0 0 10px green";
-
         solution2_input_2.style.border = "2px solid green";
         solution2_input_2.style.color = "green";
         solution2_input_2.style.boxShadow = "0 0 10px green";
-
         solution2_input_3.style.border = "2px solid green";
         solution2_input_3.style.color = "green";
         solution2_input_3.style.boxShadow = "0 0 10px green";
-
         solution2_input_4.style.border = "2px solid green";
         solution2_input_4.style.color = "green";
         solution2_input_4.style.boxShadow = "0 0 10px green";
-
         solution2_input_5.style.border = "2px solid green";
         solution2_input_5.style.color = "green";
         solution2_input_5.style.boxShadow = "0 0 10px green";
-
+        solution_acceptBtn2.style.display = "none";
         correct.play();
         saveGame();
 
@@ -691,36 +691,27 @@ function checkSolution2() {
         }, 4000);
 
     } else {
-
-        solutionUI.style.color = "red";
-        solutionUI.style.border = "2px solid red";
-
+        solutionUILevel2.style.color = "red";
+        solutionUILevel2.style.border = "2px solid red";
         solution2_input_1.style.border = "2px solid red";
         solution2_input_1.style.color = "red";
         solution2_input_1.style.boxShadow = "0 0 10px red";
-
         solution2_input_2.style.border = "2px solid red";
         solution2_input_2.style.color = "red";
         solution2_input_2.style.boxShadow = "0 0 10px red";
-
         solution2_input_3.style.border = "2px solid red";
         solution2_input_3.style.color = "red";
         solution2_input_3.style.boxShadow = "0 0 10px red";
-
         solution2_input_4.style.border = "2px solid red";
         solution2_input_4.style.color = "red";
         solution2_input_4.style.boxShadow = "0 0 10px red";
-
         solution2_input_5.style.border = "2px solid red";
         solution2_input_5.style.color = "red";
         solution2_input_5.style.boxShadow = "0 0 10px red";
-
         hpBarInner.style.width = (hp - 25) + "%";
         hpText.innerHTML = (hp - 25) + "HP";
-
         wrong.play();
         hp -= 25;
-
         saveGame();
 
         if (hp <= 0) {
@@ -728,62 +719,52 @@ function checkSolution2() {
         }
 
         setTimeout(() => {
-            solutionUI.style.color = "#00e5ff";
-            solutionUI.style.border = "2px solid #00e5ff";
-
+            solutionUILevel2.style.color = "#00e5ff";
+            solutionUILevel2.style.border = "2px solid #00e5ff";
             solution2_input_1.style.border = "2px solid #00e5ff";
             solution2_input_1.style.color = "#00e5ff";
             solution2_input_1.style.boxShadow = "0 0 10px #00e5ff";
-
             solution2_input_2.style.border = "2px solid #00e5ff";
             solution2_input_2.style.color = "#00e5ff";
             solution2_input_2.style.boxShadow = "0 0 10px #00e5ff";
-
             solution2_input_3.style.border = "2px solid #00e5ff";
             solution2_input_3.style.color = "#00e5ff";
             solution2_input_3.style.boxShadow = "0 0 10px #00e5ff";
-
             solution2_input_4.style.border = "2px solid #00e5ff";
             solution2_input_4.style.color = "#00e5ff";
             solution2_input_4.style.boxShadow = "0 0 10px #00e5ff";
-
             solution2_input_5.style.border = "2px solid #00e5ff";
             solution2_input_5.style.color = "#00e5ff";
             solution2_input_5.style.boxShadow = "0 0 10px #00e5ff";
-
+            solution_acceptBtn2.style.color = "#00e5ff";
+            solution_acceptBtn2.style.border = "2px solid #00e5ff";
         }, 3000);
     }
 }
 
 function checkSolution3() {
     if (solution3_input_1.value == solution_level3[0] && solution3_input_2.value == solution_level3[1] && solution3_input_3.value == solution_level3[2] && solution3_input_4.value == solution_level3[3] && solution3_input_5.value == solution_level3[4] && solution3_input_6.value == solution_level3[5]) {
-
-        solutionUI.style.color = "green";
-        solutionUI.style.border = "2px solid green";
-
+        solutionUIThree.style.color = "green";
+        solutionUIThree.style.border = "2px solid green";
         solution3_input_1.style.border = "2px solid green";
         solution3_input_1.style.color = "green";
         solution3_input_1.style.boxShadow = "0 0 10px green";
-
         solution3_input_2.style.border = "2px solid green";
         solution3_input_2.style.color = "green";
         solution3_input_2.style.boxShadow = "0 0 10px green";
-
         solution3_input_3.style.border = "2px solid green";
         solution3_input_3.style.color = "green";
         solution3_input_3.style.boxShadow = "0 0 10px green";
-
         solution3_input_4.style.border = "2px solid green";
         solution3_input_4.style.color = "green";
         solution3_input_4.style.boxShadow = "0 0 10px green";
-
         solution3_input_5.style.border = "2px solid green";
         solution3_input_5.style.color = "green";
         solution3_input_5.style.boxShadow = "0 0 10px green";
-
         solution3_input_6.style.border = "2px solid green";
         solution3_input_6.style.color = "green";
         solution3_input_6.style.boxShadow = "0 0 10px green";
+        solution_acceptBtn3.style.display = "none";
 
         correct.play();
         saveGame();
@@ -792,41 +773,32 @@ function checkSolution3() {
             solutionBoardLvlThree.style.display = "none";
             specialSolutionOverlay.style.display = "none";
             levelTransition.style.display = "block";
-
             transitionVideo.currentTime = 0;
             transitionVideo.muted = false;
             transitionVideo.play();
         }, 4000);
 
     } else {
-
-        solutionUI.style.color = "red";
-        solutionUI.style.border = "2px solid red";
-
+        solutionUIThree.style.color = "red";
+        solutionUIThree.style.border = "2px solid red";
         solution3_input_1.style.border = "2px solid red";
         solution3_input_1.style.color = "red";
         solution3_input_1.style.boxShadow = "0 0 10px red";
-
         solution3_input_2.style.border = "2px solid red";
         solution3_input_2.style.color = "red";
         solution3_input_2.style.boxShadow = "0 0 10px red";
-
         solution3_input_3.style.border = "2px solid red";
         solution3_input_3.style.color = "red";
         solution3_input_3.style.boxShadow = "0 0 10px red";
-
         solution3_input_4.style.border = "2px solid red";
         solution3_input_4.style.color = "red";
         solution3_input_4.style.boxShadow = "0 0 10px red";
-
         solution3_input_5.style.border = "2px solid red";
         solution3_input_5.style.color = "red";
         solution3_input_5.style.boxShadow = "0 0 10px red";
-
         solution3_input_6.style.border = "2px solid red";
         solution3_input_6.style.color = "red";
         solution3_input_6.style.boxShadow = "0 0 10px red";
-
         hpBarInner.style.width = (hp - 25) + "%";
         hpText.innerHTML = (hp - 25) + "HP";
 
@@ -840,46 +812,41 @@ function checkSolution3() {
         }
 
         setTimeout(() => {
-            solutionUI.style.color = "#00e5ff";
-            solutionUI.style.border = "2px solid #00e5ff";
-
+            solutionUIThree.style.color = "#00e5ff";
+            solutionUIThree.style.border = "2px solid #00e5ff";
             solution3_input_1.style.border = "2px solid #00e5ff";
             solution3_input_1.style.color = "#00e5ff";
             solution3_input_1.style.boxShadow = "0 0 10px #00e5ff";
-
             solution3_input_2.style.border = "2px solid #00e5ff";
             solution3_input_2.style.color = "#00e5ff";
             solution3_input_2.style.boxShadow = "0 0 10px #00e5ff";
-
             solution3_input_3.style.border = "2px solid #00e5ff";
             solution3_input_3.style.color = "#00e5ff";
             solution3_input_3.style.boxShadow = "0 0 10px #00e5ff";
-
             solution3_input_4.style.border = "2px solid #00e5ff";
             solution3_input_4.style.color = "#00e5ff";
             solution3_input_4.style.boxShadow = "0 0 10px #00e5ff";
-
             solution3_input_5.style.border = "2px solid #00e5ff";
             solution3_input_5.style.color = "#00e5ff";
             solution3_input_5.style.boxShadow = "0 0 10px #00e5ff";
-
             solution3_input_6.style.border = "2px solid #00e5ff";
             solution3_input_6.style.color = "#00e5ff";
             solution3_input_6.style.boxShadow = "0 0 10px #00e5ff";
-
+            solution_acceptBtn3.style.color = "#00e5ff";
+            solution_acceptBtn3.style.border = "2px solid #00e5ff";
         }, 3000);
     }
 }
 
 function checkSolution4() {
     if (solution4_input.value == solution_level4) {
-        solutionUI.style.color = "green";
-        solutionUI.style.border = "2px solid green";
+        solutionUIFinal.style.color = "green";
+        solutionUIFinal.style.border = "2px solid green";
         solution4_input.style.border = "2px solid green";
         solution4_input.style.color = "green";
         solution4_input.style.boxShadow = "0 0 10px green";
         solution4_input.style.border = "2px solid green";
-        solution_acceptBtn.style.display = "none";
+        solution_acceptBtn4.style.display = "none";
         correct.play();
 
         setTimeout(() => {
@@ -890,11 +857,13 @@ function checkSolution4() {
             transitionVideo.play();
         }, 4000);
     } else {
-        solutionUI.style.color = "red";
-        solutionUI.style.border = "2px solid red";
+        solutionUIFinal.style.color = "red";
+        solutionUIFinal.style.border = "2px solid red";
         solution4_input.style.border = "2px solid red";
         solution4_input.style.color = "red";
         solution4_input.style.boxShadow = "0 0 10px red";
+        solution_acceptBtn4.style.color = "red";
+        solution_acceptBtn4.style.border = "2px solid red";
         hpBarInner.style.width = (hp - 25) + "%";
         hpText.innerHTML = (hp - 25) + "HP";
         wrong.play();
@@ -906,11 +875,13 @@ function checkSolution4() {
         }
 
         setTimeout(() => {
-            solutionUI.style.color = "#00e5ff";
-            solutionUI.style.border = "2px solid #00e5ff";
+            solutionUIFinal.style.color = "#00e5ff";
+            solutionUIFinal.style.border = "2px solid #00e5ff";
             solution4_input.style.border = "2px solid #00e5ff";
             solution4_input.style.color = "#00e5ff";
             solution4_input.style.boxShadow = "0 0 10px #00e5ff";
+            solution_acceptBtn4.style.color = "#00e5ff";
+            solution_acceptBtn4.style.border = "2px solid #00e5ff";
         }, 3000);
     }
 }
