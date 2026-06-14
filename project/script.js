@@ -461,7 +461,7 @@ function backToGame() {
     solutionBoardLvlTwo.style.display = "none";
     solutionBoardFinal.style.display = "none";
     document.getElementById("solutionBoardFinal").style.display = "none";
-    document.getElementById("solutionUI").style.display = "none";
+    document.getElementById("solutionUIFinal").style.display = "none";
     document.getElementById("accessCardBox").style.display = "none";
     backClick.play();
 }
@@ -1004,20 +1004,21 @@ function accessCardNext() {
         if (inventory.includes("AccessCard")) {
             inventory.splice(inventory.indexOf("AccessCard"), 1);
             document.getElementById("solutionBoardFinal").style.display = "flex";
-            document.getElementById("solutionUI").style.display = "flex";
+            document.getElementById("solutionUIFinal").style.display = "flex";
             document.getElementById("accessCardBox").style.display = "none";
             click.currentTime = 0;
             click.play();
         } else {
+            document.getElementById("accessCardBox").style.display = "flex";
             document.getElementById("accessCardText").innerText = "ACCESS DENIED";
-            document.getElementById("solutionUI").style.display = "none";
+            document.getElementById("solutionUIFinal").style.display = "none";
             document.getElementById("solutionBoardFinal").style.display = "none";
             wrong.currentTime = 0;
             wrong.play();
             setTimeout(() => {
                 document.getElementById("accessCardBox").style.display = "none";
                 document.getElementById("solutionBoardFinal").style.display = "none";
-                document.getElementById("solutionUI").style.display = "none";
+                document.getElementById("solutionUIFinal").style.display = "none";
             }, 2000);
         }
     }

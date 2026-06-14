@@ -79,12 +79,12 @@ function checkCollision() {
 
         solutionBoard2.style.display = "grid";
 
-        gsap.set("#solutionUI", {
+        gsap.set("#solutionUILevel2Info", {
             scale: 0.9,
             opacity: 0
         });
 
-        gsap.to("#solutionUI", {
+        gsap.to("#solutionUILevel2Info", {
             scale: 1,
             opacity: 1,
             duration: 0.5,
@@ -104,12 +104,12 @@ function checkCollision() {
 
         solutionBoard3.style.display = "grid";
 
-        gsap.set("#solutionUI", {
+        gsap.set("#solutionUILevel2Hint", {
             scale: 0.9,
             opacity: 0
         });
 
-        gsap.to("#solutionUI", {
+        gsap.to("#solutionUILevel2Hint", {
             scale: 1,
             opacity: 1,
             duration: 0.5,
@@ -126,12 +126,12 @@ function checkCollision() {
 
         solutionBoardLvlTwo.style.display = "grid";
 
-        gsap.set("#solutionUI", {
+        gsap.set("#solutionUILevel2", {
             scale: 0.9,
             opacity: 0
         });
 
-        gsap.to("#solutionUI", {
+        gsap.to("#solutionUILevel2", {
             scale: 1,
             opacity: 1,
             duration: 0.5,
