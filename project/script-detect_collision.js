@@ -78,6 +78,7 @@ function checkCollision() {
         keyListenerUp({ key: "ArrowDown" });
 
         solutionBoard2.style.display = "grid";
+        playDialog(dialoge.level2.dialog2);
 
         gsap.set("#solutionUILevel2Info", {
             scale: 0.9,
@@ -103,6 +104,7 @@ function checkCollision() {
         keyListenerUp({ key: "ArrowDown" });
 
         solutionBoard3.style.display = "grid";
+        playDialog(dialoge.level2.dialog3);
 
         gsap.set("#solutionUILevel2Hint", {
             scale: 0.9,
@@ -125,6 +127,7 @@ function checkCollision() {
         keyListenerUp({ key: "ArrowDown" });
 
         solutionBoardLvlTwo.style.display = "grid";
+        playDialog(dialoge.level2.dialog4);
 
         gsap.set("#solutionUILevel2", {
             scale: 0.9,

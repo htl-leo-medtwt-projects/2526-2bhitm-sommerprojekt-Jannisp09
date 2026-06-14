@@ -244,6 +244,11 @@ function setLevel(levelNumber) {
     PLAYER.box.style.left = CURRENT_LEVEL.spawnX + "px";
     PLAYER.box.style.top = CURRENT_LEVEL.spawnY + "px";
     GAME_SCREEN.surface = CURRENT_LEVEL.element;
+
+    if (levelNumber == 4) {
+        PLAYER.spriteImg.src = "./img/human.png";
+    }
+
     levelBoxLeft.innerText = levelNumber;
     correct.currentTime = 0;
     correct.play();
@@ -270,6 +275,7 @@ let musicText = document.getElementById("musicText");
 let setupScreen = document.getElementById("setupScreen");
 let inventoryOverlay = document.getElementById("inventoryOverlay");
 let levelTransition = document.getElementById("levelTransition");
+let endTransition = document.getElementById("endTransition");
 let level1 = document.getElementById("levelOne");
 let level2 = document.getElementById("levelTwo");
 let level3 = document.getElementById("levelThree");
@@ -300,18 +306,46 @@ let dialoge = {
 
     level2: {
         dialog1: {
-            text: "Oh mein Gott! Wie soll man das lösen können?",
+            text: "Gut! Das schaffen wir jetzt auch!",
             speech: "./sound/dialoge/level2_1.mp3"
+        },
+        dialog2: {
+            text: "Was mache ich mit einem Kabelkasten?",
+            speech: "./sound/dialoge/level2_2.mp3"
+        },
+        dialog3: {
+            text: "Jetzt muss ich auch noch Englisch können!",
+            speech: "./sound/dialoge/level2_3.mp3"
+        },
+        dialog4: {
+            text: "Ich glaube ich habe eine Idee...",
+            speech: "./sound/dialoge/level2_4.mp3"
+        },
+        dialog5: {
+            text: "Wir sind ausgezeichnet!",
+            speech: "./sound/dialoge/level2_5.mp3"
         }
     },
 
     level3: {
+        dialog1: {
+            text: "Wer spricht denn da? Holt mich hier raus!",
+            speech: "./sound/dialoge/level3_1.mp3"
+        },
         dialog2: {
             text: "Willkommen zu deinem Experiment! Hoffentlich bringt dich dieses Rätsel zum scheitern!",
             speech: "./sound/dialoge/woman1.mp3"
+        },
+        dialoge3: {
+            text: "Wenn wir so weiter machen, können wir es hier rausschaffen!",
+            speech: "./sound/dialoge/level3_2.mp3"
         }
     },
     final: {
+        dialog1: {
+            text: "Jaaaa! Endlich bin ich wieder in meiner alten Figur zurück! Doch wo bin ich hier?",
+            speech: "./sound/dialoge/final_start.mp3"
+        },
         dialog2: {
             text: "Wo bin ich denn jetzt hingefallen? Gibt es hier einen Lichtschalter? (...) Achja hier.",
             speech: "./sound/dialoge/final_fall.mp3"
@@ -353,6 +387,7 @@ level2.style.display = "none";
 level3.style.display = "none";
 inventoryOverlay.style.display = "none";
 levelTransition.style.display = "none";
+endTransition.style.display = "none";
 levelImportant.style.display = "none";
 
 // Library
@@ -387,6 +422,7 @@ function startDisplay() {
     level1.style.display = "none";
     inventoryOverlay.style.display = "none";
     levelTransition.style.display = "none";
+    endTransition.style.display = "none";
     levelImportant.style.display = "none";
 }
 
@@ -421,6 +457,7 @@ function backToStart() {
 function startMusic() {
     audio.play();
     audio.volume = 0.1;
+    audio.loop();
     musicIcon.innerHTML = "❚❚";
     musicText.innerHTML = "MUSIC ON";
 }
@@ -563,6 +600,7 @@ let solution_acceptBtn4 = document.getElementById("solution_acceptBtn4");
 let hpBarInner = document.getElementById("hpBarInner");
 let hpText = document.getElementById("hpText");
 let transitionVideo = document.getElementById("transitionVideo");
+let endVideo = document.getElementById("endVideo");
 
 let solutionBoardLvlThree = document.getElementById("solutionBoardLvlThree");
 
@@ -582,6 +620,7 @@ function solutionThree() {
 function haveALook() {
     specialSolutionOverlay.style.display = "none";
     backClick.currentTime = 0;
+    playDialog(dialoge.level3.dialog1);
     backClick.play();
 }
 
@@ -680,6 +719,7 @@ function checkSolution2() {
         solution2_input_5.style.boxShadow = "0 0 10px green";
         solution_acceptBtn2.style.display = "none";
         correct.play();
+        playDialog(dialoge.level2.dialog5);
         saveGame();
 
         setTimeout(() => {
@@ -765,7 +805,7 @@ function checkSolution3() {
         solution3_input_6.style.color = "green";
         solution3_input_6.style.boxShadow = "0 0 10px green";
         solution_acceptBtn3.style.display = "none";
-
+        playDialog(dialoge.level3.dialoge3);
         correct.play();
         saveGame();
 
@@ -851,10 +891,10 @@ function checkSolution4() {
 
         setTimeout(() => {
             document.getElementById("solutionBoardFinal").style.display = "none";
-            levelTransition.style.display = "block";
-            transitionVideo.currentTime = 0;
-            transitionVideo.muted = false;
-            transitionVideo.play();
+            endTransition.style.display = "block";
+            endVideo.currentTime = 0;
+            endVideo.muted = false;
+            endVideo.play();
         }, 4000);
     } else {
         solutionUIFinal.style.color = "red";
@@ -1033,11 +1073,28 @@ transitionVideo.addEventListener("ended", () => {
     correct.play();
     if (CURRENT_LEVEL_NUMBER === 1) {
         setLevel(2);
+        playDialog(dialoge.level2.dialog1);
     } else if (CURRENT_LEVEL_NUMBER === 2) {
         setLevel(3);
         playDialog(dialoge.level3.dialog2);
     } else if (CURRENT_LEVEL_NUMBER === 3) {
         setLevel(4);
+        playDialog(dialoge.final.dialog1);
     }
     saveGame();
+});
+
+endVideo.addEventListener("ended", () => {
+    startScreen.style.display = "grid";
+    settingScreen.style.display = "none";
+    setupScreen.style.display = "none";
+    level1.style.display = "none";
+    level2.style.display = "none";
+    level3.style.display = "none";
+    document.getElementById("finalLevel").style.display = "none";
+    document.getElementById("final_subroom").style.display = "none";
+    inventoryOverlay.style.display = "none";
+    levelTransition.style.display = "none";
+    endTransition.style.display = "none";
+    levelImportant.style.display = "none";
 });
