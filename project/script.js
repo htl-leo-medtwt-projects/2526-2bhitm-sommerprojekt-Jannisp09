@@ -457,9 +457,9 @@ function backToStart() {
 function startMusic() {
     audio.play();
     audio.volume = 0.1;
-    audio.loop();
-    musicIcon.innerHTML = "❚❚";
-    musicText.innerHTML = "MUSIC ON";
+    audio.loop = true;
+    document.getElementById("musicIcon").innerHTML = "❚❚";
+    document.getElementById("musicText").innerHTML = "MUSIC ON";
 }
 
 function loadSaveNames() {
