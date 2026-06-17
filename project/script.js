@@ -23,7 +23,6 @@ function restartLevel1() {
     playDialog(dialoge.level1.dialog4);
     saveGame();
 }
-
 function saveGame() {
     let saves = getAllSaves();
     saves[currentPlayerName] = {
